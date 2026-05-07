@@ -20,15 +20,15 @@ public class Hra implements IHra {
     }
 
     public String vratUvitani() {
-        return "Vítejte!\n" +
-               "Jsi v aule VŠE a máš žízeň. Najdi automat 'lokni si' a kup si nápoj!\n" +
+        return "Vítejte na VŠE!\n" +
+               "Jsi v aule a máš strašnou žízeň. Tvým úkolem je najít automat 'lokni si' a koupit si nápoj.\n" +
                "Napište 'nápověda', pokud si nevíte rady, jak hrát dál.\n" +
                "\n" +
                herniPlan.getAktualniProstor().dlouhyPopis();
     }
     
     public String vratEpilog() {
-        return "Dík, že jste si zahráli.  Ahoj.";
+        return "Díky za hru! Snad už nemáš žízeň. Ahoj.";
     }
     
     public boolean konecHry() {

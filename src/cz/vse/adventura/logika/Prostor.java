@@ -14,6 +14,7 @@ public class Prostor {
         this.nazev = nazev;
         this.popis = popis;
         vychody = new HashSet<>();
+        veci = new HashMap<>();
     }
 
     public boolean jeVecVProstoru(String nazev)
@@ -28,7 +29,7 @@ public class Prostor {
 
     public Vec pridejVec(Vec vec)
     {
-        if(jeVecVProstoru(nazev))
+        if(jeVecVProstoru(vec.getNazev()))
         {
             return getVec(vec.getNazev());
         }
@@ -72,7 +73,8 @@ public class Prostor {
 
     public String dlouhyPopis() {
         return "Jsi v mistnosti/prostoru " + popis + ".\n"
-                + popisVychodu();
+                + popisVychodu() + "\n"
+                + popisVeci();
     }
 
     private String popisVychodu() {
@@ -84,10 +86,10 @@ public class Prostor {
     }
 
     private String popisVeci() {
-        String vracenyText = "veci:";
-        for(Vec veci : veci.values())
+        String vracenyText = "věci:";
+        for(Vec vec : veci.values())
         {
-            vracenyText += " " + veci.getNazev();
+            vracenyText += " " + vec.getNazev();
         }
         return vracenyText;
     }
