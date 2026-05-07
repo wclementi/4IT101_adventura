@@ -17,9 +17,10 @@ public class Batoh
     public Vec getVec(String nazev) throws Exception
     {
         if(!jeVecVBatohu(nazev)){
-            throw new Exception("V batohu se tato vec nachazi.");
+            throw new Exception("V batohu se tato vec nenachazi.");
+        }else{
+            return veci.get(nazev);
         }
-        return veci.get(nazev);
     }
 
     private int getHmotnost()
@@ -30,14 +31,15 @@ public class Batoh
             hmotnost = hmotnost + vec.getHmotnost();
         }
         return hmotnost;
-
     }
 
-    public Vec odeberVec(String nazev) throws Exception{
+    public Vec odeberVec(String nazev) throws Exception
+    {
         if(!jeVecVBatohu(nazev)){
             throw new Exception("Tato vec neni v batohu");
+        }else {
+            return veci.remove(nazev);
         }
-        return veci.remove(nazev);
     }
 
     public Vec pridejVec(Vec vec) throws Exception
@@ -46,7 +48,7 @@ public class Batoh
         {
             throw new Exception("Tato vec jiz v batohu je");
         }
-        if(maximalniKapacita < veci.size() + 1)
+        else if(maximalniKapacita < veci.size() + 1)
         {
             throw new Exception("Max kapacita nesmi byt prekrocena");
         }
@@ -57,4 +59,14 @@ public class Batoh
         return veci.put(vec.getNazev(), vec);
     }
 
+    public String getPopisObsahu() {
+        if (veci.isEmpty()) {
+            return "Batoh je prázdný.";
+        }
+        String vracenyText = "Věci v batohu:";
+        for (String nazev : veci.keySet()) {
+            vracenyText += " " + nazev;
+        }
+        return vracenyText;
+    }
 }

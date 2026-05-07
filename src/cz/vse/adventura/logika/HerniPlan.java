@@ -3,35 +3,98 @@ package cz.vse.adventura.logika;
 public class HerniPlan {
     
     private Prostor aktualniProstor;
+    private final Batoh batoh;
     
     public HerniPlan() {
         zalozProstoryHry();
+        batoh = new Batoh();
     }
     
     private void zalozProstoryHry() {
-        Prostor domecek = new Prostor("domeček","domeček, ve kterém bydlí Karkulka");
-        Prostor chaloupka = new Prostor("chaloupka", "chaloupka, ve které bydlí babička Karkulky");
-        Prostor jeskyne = new Prostor("jeskyně","stará plesnivá jeskyně");
-        Prostor les = new Prostor("les","les s jahodami, malinami a pramenem vody");
-        Prostor hlubokyLes = new Prostor("hluboký_les","temný les, ve kterém lze potkat vlka");
+        Prostor aula = new Prostor("aula","velká aula na VŠE");
+        Prostor chodba = new Prostor("chodba", "dlouhá chodba se skříňkami");
+        Prostor bufet = new Prostor("bufet","školní bufet, kde je ale docela draho");
 
-        domecek.setVychod(les);
-        les.setVychod(domecek);
-        les.setVychod(hlubokyLes);
-        hlubokyLes.setVychod(les);
-        hlubokyLes.setVychod(jeskyne);
-        hlubokyLes.setVychod(chaloupka);
-        jeskyne.setVychod(hlubokyLes);
-        chaloupka.setVychod(hlubokyLes);
+        aula.setVychod(chodba);
+        chodba.setVychod(aula);
+        chodba.setVychod(bufet);
+        bufet.setVychod(chodba);
+        
+        aula.pridejVec(new Vec("mince", true, 1));
+        bufet.pridejVec(new Vec("automat", false, 100)); // automat 'lokni si'
                 
-        aktualniProstor = domecek;
+        aktualniProstor = aula;
+    }
+
+    public void seberVec(String nazevVeci) throws Exception
+    {
+        Vec vec = aktualniProstor.getVec(nazevVeci);
+
+        if(vec != null)
+        {
+            if (!vec.isPrenositelna()) {
+                throw new Exception("Tuto věc nelze přenášet.");
+            }
+            batoh.pridejVec(vec);
+            aktualniProstor.odeberVec(vec);
+        }else{
+            throw new Exception("Nic takoveho tu neni");
+        }
+    }
+
+    public void polozVec(String nazevVeci) throws Exception
+    {
+        Vec vec = batoh.odeberVec(nazevVeci);
+        aktualniProstor.pridejVec(vec);
     }
     
+    public void vypij(String nazev) throws Exception {
+        if (!batoh.jeVecVBatohu(nazev)) {
+            throw new Exception("Takovou věc nemáš v batohu k pití.");
+        }
+        if (!nazev.equals("nápoj")) {
+            throw new Exception("Tohle se nedá pít.");
+        }
+        batoh.odeberVec(nazev);
+    }
+    
+    public void kupVec(String nazev) throws Exception {
+        if (!aktualniProstor.jeVecVProstoru("automat")) {
+            throw new Exception("Tady není automat, kde by se dalo nakupovat.");
+        }
+        if (!batoh.jeVecVBatohu("mince")) {
+            throw new Exception("Nemáš žádné mince na nákup.");
+        }
+        if (!nazev.equals("nápoj")) {
+            throw new Exception("Automat prodává pouze 'nápoj'.");
+        }
+        
+        batoh.odeberVec("mince");
+        aktualniProstor.pridejVec(new Vec("nápoj", true, 2));
+    }
+    
+    public String prozkoumejVec(String nazev) throws Exception {
+        if (aktualniProstor.jeVecVProstoru(nazev)) {
+            if (nazev.equals("automat")) {
+                return "Je to automat 'lokni si'. Vypadá to, že prodává 'nápoj' za 'mince'.";
+            }
+            return "Vidíš věc: " + nazev;
+        } else if (batoh.jeVecVBatohu(nazev)) {
+            return "Máš v batohu věc: " + nazev;
+        } else {
+            throw new Exception("Taková věc tu není k prozkoumání ani v prostoru, ani v batohu.");
+        }
+    }
+
     public Prostor getAktualniProstor() {
         return aktualniProstor;
     }
     
     public void setAktualniProstor(Prostor prostor) {
        aktualniProstor = prostor;
+    }
+
+    public String getPopisObsahuBatohu() {
+        return batoh.getPopisObsahu();
     }
 }

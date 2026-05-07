@@ -11,11 +11,17 @@ public class Hra implements IHra {
         platnePrikazy.vlozPrikaz(new PrikazNapoveda(platnePrikazy));
         platnePrikazy.vlozPrikaz(new PrikazJdi(herniPlan));
         platnePrikazy.vlozPrikaz(new PrikazKonec(this));
+        platnePrikazy.vlozPrikaz(new PrikazSeber(herniPlan));
+        platnePrikazy.vlozPrikaz(new PrikazPoloz(herniPlan));
+        platnePrikazy.vlozPrikaz(new PrikazVypis(herniPlan));
+        platnePrikazy.vlozPrikaz(new PrikazPij(herniPlan));
+        platnePrikazy.vlozPrikaz(new PrikazKup(herniPlan));
+        platnePrikazy.vlozPrikaz(new PrikazProzkoumej(herniPlan));
     }
 
     public String vratUvitani() {
         return "Vítejte!\n" +
-               "Toto je příběh o Červené Karkulce, babičce a vlkovi.\n" +
+               "Jsi v aule VŠE a máš žízeň. Najdi automat 'lokni si' a kup si nápoj!\n" +
                "Napište 'nápověda', pokud si nevíte rady, jak hrát dál.\n" +
                "\n" +
                herniPlan.getAktualniProstor().dlouhyPopis();
