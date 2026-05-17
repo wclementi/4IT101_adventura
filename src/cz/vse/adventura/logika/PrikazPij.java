@@ -22,7 +22,8 @@ public class PrikazPij implements IPrikaz {
             return e.getMessage();
         }
 
-        return "Vypil jsi '" + nazev + "'. Výborně osvěžující!";
+        // ukol 12. tyden
+        return "Vypil jsi '" + nazev + "'. Výborně osvěžující! Žízeň je zahnána. Můžeš pokračovat na přednášku.";
     }
 
     @Override

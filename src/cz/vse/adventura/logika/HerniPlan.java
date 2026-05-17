@@ -7,7 +7,8 @@ public class HerniPlan {
     
     public HerniPlan() {
         zalozProstoryHry();
-        batoh = new Batoh();
+        // ukol 12. tyden: Singleton pro batoh
+        batoh = Batoh.getInstance();
     }
     
     private void zalozProstoryHry() {

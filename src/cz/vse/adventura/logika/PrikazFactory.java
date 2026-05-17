@@ -1,0 +1,30 @@
+package cz.vse.adventura.logika;
+
+// ukol 12. tyden: Factory
+public class PrikazFactory {
+    
+    public static IPrikaz vytvorPrikaz(String typPrikazu, HerniPlan plan, SeznamPrikazu seznamPrikazu, Hra hra) {
+        switch (typPrikazu) {
+            case "jdi":
+                return new PrikazJdi(plan);
+            case "konec":
+                return new PrikazKonec(hra);
+            case "seber":
+                return new PrikazSeber(plan);
+            case "polož":
+                return new PrikazPoloz(plan);
+            case "vypiš":
+                return new PrikazVypis(plan);
+            case "pij":
+                return new PrikazPij(plan);
+            case "kup":
+                return new PrikazKup(plan);
+            case "prozkoumej":
+                return new PrikazProzkoumej(plan);
+            case "nápověda":
+                return new PrikazNapoveda(seznamPrikazu);
+            default:
+                return null;
+        }
+    }
+}

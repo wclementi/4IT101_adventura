@@ -4,19 +4,25 @@ public class Hra implements IHra {
     private SeznamPrikazu platnePrikazy;
     private HerniPlan herniPlan;
     private boolean konecHry = false;
+    
+    // ukol 12. tyden: Enum pro stav hry
+    private StavHry stavHry;
 
     public Hra() {
         herniPlan = new HerniPlan();
         platnePrikazy = new SeznamPrikazu();
-        platnePrikazy.vlozPrikaz(new PrikazNapoveda(platnePrikazy));
-        platnePrikazy.vlozPrikaz(new PrikazJdi(herniPlan));
-        platnePrikazy.vlozPrikaz(new PrikazKonec(this));
-        platnePrikazy.vlozPrikaz(new PrikazSeber(herniPlan));
-        platnePrikazy.vlozPrikaz(new PrikazPoloz(herniPlan));
-        platnePrikazy.vlozPrikaz(new PrikazVypis(herniPlan));
-        platnePrikazy.vlozPrikaz(new PrikazPij(herniPlan));
-        platnePrikazy.vlozPrikaz(new PrikazKup(herniPlan));
-        platnePrikazy.vlozPrikaz(new PrikazProzkoumej(herniPlan));
+        stavHry = StavHry.PROBIHA;
+
+        // ukol 12. tyden: Využití Factory
+        platnePrikazy.vlozPrikaz(PrikazFactory.vytvorPrikaz("nápověda", herniPlan, platnePrikazy, this));
+        platnePrikazy.vlozPrikaz(PrikazFactory.vytvorPrikaz("jdi", herniPlan, null, this));
+        platnePrikazy.vlozPrikaz(PrikazFactory.vytvorPrikaz("konec", herniPlan, null, this));
+        platnePrikazy.vlozPrikaz(PrikazFactory.vytvorPrikaz("seber", herniPlan, null, this));
+        platnePrikazy.vlozPrikaz(PrikazFactory.vytvorPrikaz("polož", herniPlan, null, this));
+        platnePrikazy.vlozPrikaz(PrikazFactory.vytvorPrikaz("vypiš", herniPlan, null, this));
+        platnePrikazy.vlozPrikaz(PrikazFactory.vytvorPrikaz("pij", herniPlan, null, this));
+        platnePrikazy.vlozPrikaz(PrikazFactory.vytvorPrikaz("kup", herniPlan, null, this));
+        platnePrikazy.vlozPrikaz(PrikazFactory.vytvorPrikaz("prozkoumej", herniPlan, null, this));
     }
 
     public String vratUvitani() {
@@ -28,7 +34,13 @@ public class Hra implements IHra {
     }
     
     public String vratEpilog() {
-        return "Díky za hru! Snad už nemáš žízeň. Ahoj.";
+        if (stavHry == StavHry.VYHRA) {
+            return "Gratuluji! Vypil jsi nápoj, zažehnal jsi žízeň a stihl jsi přednášku. VYHRÁL JSI!";
+        } else if (stavHry == StavHry.PROHRA) {
+            return "Bohužel jsi nestihl vyřešit svůj problém s žízní a zkolaboval jsi. PROHRÁL JSI!";
+        } else {
+            return "Díky za hru! Snad už nemáš žízeň. Ahoj.";
+        }
     }
     
     public boolean konecHry() {
@@ -55,6 +67,12 @@ public class Hra implements IHra {
     
     void setKonecHry(boolean konecHry) {
         this.konecHry = konecHry;
+    }
+
+    // ukol 12. tyden: Změnu stavu a konec hry (z příkazů)
+    public void setStavHry(StavHry stav) {
+        this.stavHry = stav;
+        this.konecHry = true;
     }
     
     public HerniPlan getHerniPlan(){

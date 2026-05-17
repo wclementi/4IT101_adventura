@@ -3,11 +3,23 @@ package cz.vse.adventura.logika;
 import java.util.HashMap;
 import java.util.Map;
 
+// ukol 12. tyden: Singleton pro batoh
 public class Batoh
 {
+    private static Batoh instance;
+
     private int maximalniKapacita = 5;
     private int maximalniNosnost = 6;
     private Map<String, Vec> veci = new HashMap<>();
+
+    private Batoh() {}
+
+    public static Batoh getInstance() {
+        if (instance == null) {
+            instance = new Batoh();
+        }
+        return instance;
+    }
 
     public boolean jeVecVBatohu(String nazev)
     {
