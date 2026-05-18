@@ -1,4 +1,7 @@
 package cz.vse.adventura.logika;
+import cz.vse.adventura.logika.predmety.*;
+import cz.vse.adventura.logika.prikazy.*;
+import cz.vse.adventura.logika.npc.*;
 
 // ukol 12. tyden: Dědičnost
 public class ProstorSpecialni extends Prostor {

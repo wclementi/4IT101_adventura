@@ -1,4 +1,7 @@
 package cz.vse.adventura.logika;
+import cz.vse.adventura.logika.predmety.*;
+import cz.vse.adventura.logika.prikazy.*;
+import cz.vse.adventura.logika.npc.*;
 
 public class Hra implements IHra {
     private SeznamPrikazu platnePrikazy;
@@ -65,7 +68,7 @@ public class Hra implements IHra {
         return textKVypsani;
     }
     
-    void setKonecHry(boolean konecHry) {
+    public void setKonecHry(boolean konecHry) {
         this.konecHry = konecHry;
     }
 

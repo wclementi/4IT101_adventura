@@ -1,6 +1,10 @@
-package cz.vse.adventura.logika;
+package cz.vse.adventura.logika.prikazy;
+import cz.vse.adventura.logika.*;
+import cz.vse.adventura.logika.predmety.*;
+import cz.vse.adventura.logika.prikazy.*;
+import cz.vse.adventura.logika.npc.*;
 
-class PrikazNapoveda implements IPrikaz {
+public class PrikazNapoveda implements IPrikaz {
     
     private static final String NAZEV = "nápověda";
     private SeznamPrikazu platnePrikazy;
