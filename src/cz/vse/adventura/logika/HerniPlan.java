@@ -15,19 +15,65 @@ public class HerniPlan {
     }
     
     private void zalozProstoryHry() {
-        Prostor aula = new Prostor("aula","velká aula na VŠE");
-        Prostor chodba = new Prostor("chodba", "dlouhá chodba se skříňkami");
-        Prostor bufet = new Prostor("bufet","školní bufet, kde je ale docela draho");
+        // vytvoření prostorů
+        Prostor ucebnaProgramovani = new Prostor("ucebna_programovani", "učebna, kde probíhá přednáška 4IT101");
+        Prostor chodbaPatro1 = new Prostor("chodba_1_patro", "chodba v prvním patře");
+        Prostor chodbaPatro2 = new Prostor("chodba_2_patro", "chodba ve druhém patře");
+        Prostor uklidovaMistnost = new Prostor("uklidova_mistnost", "malá místnost pro úklidové potřeby");
+        Prostor schodiste = new Prostor("schodiste", "schodiště propojující patra");
+        Prostor chodbaPrizemi = new Prostor("chodba_prizemi", "chodba v přízemí");
+        Prostor recepce = new Prostor("recepce", "recepce u vstupu do budovy");
+        Prostor vychodVSE = new Prostor("vychod_z_VSE", "východ z budovy VŠE");
+        Prostor chodbaNovaBudova = new Prostor("chodba_do_nove_budovy", "prosklená chodba do nové budovy");
+        Prostor chodbaVnoveBudove = new Prostor("chodba_v_nove_budove", "hlavní chodba v nové budově");
+        Prostor vencovskehoAula = new Prostor("vencovskeho_aula", "Vencovského aula");
+        Prostor likesovaAula = new Prostor("likesova_aula", "Likesova aula");
 
-        aula.setVychod(chodba);
-        chodba.setVychod(aula);
-        chodba.setVychod(bufet);
-        bufet.setVychod(chodba);
+        // propojení prostorů
+        ucebnaProgramovani.setVychod(chodbaPatro1);
+        chodbaPatro1.setVychod(ucebnaProgramovani);
+        chodbaPatro1.setVychod(schodiste);
+
+        schodiste.setVychod(chodbaPatro1);
+        schodiste.setVychod(chodbaPatro2);
+        schodiste.setVychod(chodbaPrizemi);
+
+        chodbaPatro2.setVychod(schodiste);
+        chodbaPatro2.setVychod(uklidovaMistnost);
+        uklidovaMistnost.setVychod(chodbaPatro2);
+
+        chodbaPrizemi.setVychod(schodiste);
+        chodbaPrizemi.setVychod(recepce);
+        chodbaPrizemi.setVychod(chodbaNovaBudova);
         
-        aula.pridejVec(new Vec("mince", true, 1));
-        bufet.pridejVec(new Vec("automat", false, 100)); // automat 'lokni si'
-                
-        aktualniProstor = aula;
+        recepce.setVychod(chodbaPrizemi);
+        recepce.setVychod(vychodVSE);
+        vychodVSE.setVychod(recepce);
+
+        chodbaNovaBudova.setVychod(chodbaPrizemi);
+        chodbaNovaBudova.setVychod(chodbaVnoveBudove);
+
+        chodbaVnoveBudove.setVychod(chodbaNovaBudova);
+        chodbaVnoveBudove.setVychod(vencovskehoAula);
+        chodbaVnoveBudove.setVychod(likesovaAula);
+
+        vencovskehoAula.setVychod(chodbaVnoveBudove);
+        likesovaAula.setVychod(chodbaVnoveBudove);
+        
+        // Přidání věcí do prostorů
+        chodbaPatro1.pridejVec(new Vec("učebnice_ekonomie", true, 3));
+        uklidovaMistnost.pridejVec(new Vec("páčidlo", true, 5));
+        uklidovaMistnost.pridejVec(new Vec("prázdná_lahev_od_sava", true, 1));
+        chodbaPrizemi.pridejVec(new Vec("mince", true, 1));
+        chodbaNovaBudova.pridejVec(new Vec("LOKNI_SI_automat", false, 100));
+        chodbaVnoveBudove.pridejVec(new Vec("nápojový_automat", false, 100));
+        vencovskehoAula.pridejVec(new Vec("volná_sedacka", false, 50));
+        vencovskehoAula.pridejVec(new Vec("mince", true, 1));
+        likesovaAula.pridejVec(new Vec("volná_sedacka", false, 50));
+        likesovaAula.pridejVec(new Vec("mince", true, 1));
+
+        // nastavení počátečního prostoru
+        aktualniProstor = ucebnaProgramovani;
     }
 
     public void seberVec(String nazevVeci) throws Exception
