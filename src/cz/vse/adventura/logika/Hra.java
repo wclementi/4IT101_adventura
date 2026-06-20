@@ -26,6 +26,8 @@ public class Hra implements IHra {
         platnePrikazy.vlozPrikaz(PrikazFactory.vytvorPrikaz("pij", herniPlan, null, this));
         platnePrikazy.vlozPrikaz(PrikazFactory.vytvorPrikaz("kup", herniPlan, null, this));
         platnePrikazy.vlozPrikaz(PrikazFactory.vytvorPrikaz("prozkoumej", herniPlan, null, this));
+        platnePrikazy.vlozPrikaz(PrikazFactory.vytvorPrikaz("promluv", herniPlan, null, this));
+        platnePrikazy.vlozPrikaz(PrikazFactory.vytvorPrikaz("naplň", herniPlan, null, this));
     }
 
     public String vratUvitani() {

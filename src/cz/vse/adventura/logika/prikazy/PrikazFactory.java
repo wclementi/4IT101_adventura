@@ -20,11 +20,15 @@ public class PrikazFactory {
             case "vypiš":
                 return new PrikazVypis(plan);
             case "pij":
-                return new PrikazPij(plan);
+                return new PrikazPij(plan, hra);
             case "kup":
                 return new PrikazKup(plan);
             case "prozkoumej":
                 return new PrikazProzkoumej(plan);
+            case "promluv":
+                return new PrikazPromluv(plan);
+            case "naplň":
+                return new PrikazNapln(plan);
             case "nápověda":
                 return new PrikazNapoveda(seznamPrikazu);
             default:

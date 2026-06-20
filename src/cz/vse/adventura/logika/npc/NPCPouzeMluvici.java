@@ -19,6 +19,6 @@ public class NPCPouzeMluvici {
     }
 
     public String mluv() {
-        return jmeno + " říká: \"" + text + "\"";
+        return text;
     }
 }
