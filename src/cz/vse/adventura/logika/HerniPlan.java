@@ -1,8 +1,12 @@
 package cz.vse.adventura.logika;
 import cz.vse.adventura.logika.predmety.*;
-import cz.vse.adventura.logika.prikazy.*;
 import cz.vse.adventura.logika.npc.*;
 
+/**
+ * Třída představující herní mapu. Definuje jednotlivé prostory a jejich propojení.
+ *
+ * @author Kajetan Franciszek Wielgosz
+ */
 public class HerniPlan {
     
     private Prostor aktualniProstor;
@@ -101,6 +105,10 @@ public class HerniPlan {
         aktualniProstor = ucebnaProgramovani;
     }
 
+    /**
+     * Metoda pro seberVec.
+     * @param nazevVeci požadovaný vstup nazevVeci
+     */
     public void seberVec(String nazevVeci) throws Exception
     {
         Vec vec = aktualniProstor.getVec(nazevVeci);
@@ -117,12 +125,20 @@ public class HerniPlan {
         }
     }
 
+    /**
+     * Metoda pro polozVec.
+     * @param nazevVeci požadovaný vstup nazevVeci
+     */
     public void polozVec(String nazevVeci) throws Exception
     {
         Vec vec = batoh.odeberVec(nazevVeci);
         aktualniProstor.pridejVec(vec);
     }
     
+    /**
+     * Metoda pro vypij.
+     * @param nazev hledaný název
+     */
     public void vypij(String nazev) throws Exception {
         if (!batoh.jeVecVBatohu(nazev)) {
             throw new Exception("Takovou věc nemáš v batohu k pití.");
@@ -133,6 +149,10 @@ public class HerniPlan {
         batoh.odeberVec(nazev);
     }
     
+    /**
+     * Metoda pro kupVec.
+     * @param nazev hledaný název
+     */
     public void kupVec(String nazev) throws Exception {
         if (!aktualniProstor.jeVecVProstoru("automat") && !aktualniProstor.jeVecVProstoru("LOKNI_SI_automat") && !aktualniProstor.jeVecVProstoru("nápojový_automat")) {
             throw new Exception("Tady není automat, kde by se dalo nakupovat.");
@@ -148,6 +168,11 @@ public class HerniPlan {
         aktualniProstor.pridejVec(new Vec("nápoj", true, 2));
     }
     
+    /**
+     * Metoda pro prozkoumejVec.
+     * @param nazev hledaný název
+     * @return logický výsledek volání
+     */
     public String prozkoumejVec(String nazev) throws Exception {
         if (aktualniProstor.jeVecVProstoru(nazev)) {
             if (nazev.equals("automat")) {
@@ -161,14 +186,26 @@ public class HerniPlan {
         }
     }
 
+    /**
+     * Vrátí odkaz na aktuální prostor (místnost), ve kterém se hráč právě nachází.
+     * @return logický výsledek volání
+     */
     public Prostor getAktualniProstor() {
         return aktualniProstor;
     }
     
+    /**
+     * Nastaví aktuální prostor (místnost), do kterého se hráč přesunul.
+     * @param prostor požadovaný vstup prostor
+     */
     public void setAktualniProstor(Prostor prostor) {
        aktualniProstor = prostor;
     }
 
+    /**
+     * Metoda pro getPopisObsahuBatohu.
+     * @return logický výsledek volání
+     */
     public String getPopisObsahuBatohu() {
         return batoh.getPopisObsahu();
     }

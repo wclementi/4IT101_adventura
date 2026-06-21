@@ -1,9 +1,15 @@
 package cz.vse.adventura.logika;
 
-import cz.vse.adventura.logika.predmety.*;
 import cz.vse.adventura.logika.prikazy.*;
-import cz.vse.adventura.logika.npc.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Hlavní třída logiky hry. Inicializuje hru, předává příkazy parseru a spravuje stav hry.
+ *
+ * @author Kajetan Franciszek Wielgosz
+ */
 public class Hra implements IHra {
     private SeznamPrikazu platnePrikazy;
     private HerniPlan herniPlan;
@@ -16,6 +22,8 @@ public class Hra implements IHra {
 
     // ukol 12. tyden: Enum pro stav hry
     private StavHry stavHry;
+
+    private List<String> historie = new ArrayList<>();
 
     public Hra() {
         herniPlan = new HerniPlan();
@@ -36,8 +44,13 @@ public class Hra implements IHra {
         platnePrikazy.vlozPrikaz(PrikazFactory.vytvorPrikaz("naplň", herniPlan, null, this));
         platnePrikazy.vlozPrikaz(PrikazFactory.vytvorPrikaz("sedni", herniPlan, null, this));
         platnePrikazy.vlozPrikaz(PrikazFactory.vytvorPrikaz("rozbij", herniPlan, null, this));
+        platnePrikazy.vlozPrikaz(PrikazFactory.vytvorPrikaz("log", herniPlan, null, this));
     }
 
+    /**
+     * Vrátí uvítací text pro hráče při zahájení hry.
+     * @return logický výsledek volání
+     */
     public String vratUvitani() {
         return "Vítejte na VŠE!\n" +
                 "Jsi v učebně informatiky, právě skončila přednáška 4IT101 a máš strašnou žízeň. Tvým úkolem je najít něco co uhasí tvoji žízeň a dostavit se včas na další přednášku ekonomie. Hodně štěstí!\n"
@@ -47,14 +60,27 @@ public class Hra implements IHra {
                 herniPlan.getAktualniProstor().dlouhyPopis();
     }
 
+    /**
+     * Vrátí závěrečný text pro hráče po ukončení hry.
+     * @return logický výsledek volání
+     */
     public String vratEpilog() {
         return textEpilogu;
     }
 
+    /**
+     * Vrací informaci, zda hra již skončila (výhrou, prohrou nebo příkazem konec).
+     * @return logický výsledek volání
+     */
     public boolean konecHry() {
         return konecHry;
     }
 
+    /**
+     * Zpracuje textový řetězec zadaný hráčem, rozdělí jej na slova a deleguje zpracování příslušnému příkazu. Vrací odpověď hry.
+     * @param radek textový příkaz od uživatele
+     * @return logický výsledek volání
+     */
     public String zpracujPrikaz(String radek) {
         String[] slova = radek.split("[ \t]+");
         String slovoPrikazu = slova[0];
@@ -80,43 +106,100 @@ public class Hra implements IHra {
         } else {
             textKVypsani = "Nevím co tím myslíš? Tento příkaz neznám. ";
         }
+        
+        historie.add("> " + radek);
+        historie.add(textKVypsani);
+        
         return textKVypsani;
     }
 
+    /**
+     * Vrátí kompletní historii zadaných příkazů a odpovědí hry.
+     * @return seznam historických záznamů
+     */
+    public List<String> getHistorie() {
+        return historie;
+    }
+
+    /**
+     * Nastaví indikátor konce hry na zadanou hodnotu.
+     * @param konecHry požadovaný vstup konecHry
+     */
     public void setKonecHry(boolean konecHry) {
         this.konecHry = konecHry;
     }
 
+    /**
+     * Ukončí hru se specifickým stavem a nastaví odpovídající epilog.
+     * @param stav požadovaný vstup stav
+     * @param epilog závěrečný text po ukončení
+     */
     public void setKonecHryS_Epilogem(StavHry stav, String epilog) {
         this.stavHry = stav;
         this.konecHry = true;
         this.textEpilogu = epilog;
     }
 
+    /**
+     * Vrátí aktuální stav hry (např. PROBIHA, GOOD_ENDING, atd.).
+     * @return aktuální stav hry
+     */
+    public StavHry getStavHry() {
+        return stavHry;
+    }
+
+    /**
+     * Nastaví, zda si hráč již uspokojil žízeň.
+     * @param stav požadovaný vstup stav
+     */
     public void setUspokojenaZizen(boolean stav) {
         this.uspokojenaZizen = stav;
     }
 
+    /**
+     * Vrací informaci, zda již byla žízeň hráče uspokojena.
+     * @return logický výsledek volání
+     */
     public boolean isUspokojenaZizen() {
         return uspokojenaZizen;
     }
 
+    /**
+     * Metoda pro setVypitoSavo.
+     * @param stav požadovaný vstup stav
+     */
     public void setVypitoSavo(boolean stav) {
         this.vypitoSavo = stav;
     }
 
+    /**
+     * Metoda pro isVypitoSavo.
+     * @return logický výsledek volání
+     */
     public boolean isVypitoSavo() {
         return vypitoSavo;
     }
 
+    /**
+     * Metoda pro setRozbityAutomat.
+     * @param stav požadovaný vstup stav
+     */
     public void setRozbityAutomat(boolean stav) {
         this.rozbityAutomat = stav;
     }
 
+    /**
+     * Metoda pro isRozbityAutomat.
+     * @return logický výsledek volání
+     */
     public boolean isRozbityAutomat() {
         return rozbityAutomat;
     }
 
+    /**
+     * Vrátí odkaz na aktuální herní plán (mapu) obsahující místnosti a jejich propojení.
+     * @return logický výsledek volání
+     */
     public HerniPlan getHerniPlan() {
         return herniPlan;
     }

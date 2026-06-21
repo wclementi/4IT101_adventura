@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Start ze souboru" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="cz.vse.adventura.Start" />
+    <module name="adventura" />
+    <option name="PROGRAM_PARAMETERS" value="prikazy.txt" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

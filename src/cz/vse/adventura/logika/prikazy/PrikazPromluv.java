@@ -4,6 +4,11 @@ import cz.vse.adventura.logika.HerniPlan;
 import cz.vse.adventura.logika.Prostor;
 import cz.vse.adventura.logika.npc.NPCPouzeMluvici;
 
+/**
+ * Příkaz pro zahájení dialogu s NPC postavou.
+ *
+ * @author Kajetan Franciszek Wielgosz
+ */
 public class PrikazPromluv implements IPrikaz {
     private static final String NAZEV = "promluv";
     private HerniPlan plan;

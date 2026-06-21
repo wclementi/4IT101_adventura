@@ -1,9 +1,10 @@
 package cz.vse.adventura.logika.prikazy;
-import cz.vse.adventura.logika.*;
-import cz.vse.adventura.logika.predmety.*;
-import cz.vse.adventura.logika.prikazy.*;
-import cz.vse.adventura.logika.npc.*;
 
+/**
+ * Příkaz pro zobrazení nápovědy a seznamu příkazů.
+ *
+ * @author Kajetan Franciszek Wielgosz
+ */
 public class PrikazNapoveda implements IPrikaz {
     
     private static final String NAZEV = "nápověda";
@@ -19,7 +20,20 @@ public class PrikazNapoveda implements IPrikaz {
         + "Najdi na škole bufet a prohledej okolí, jestli nemáš nějaké mince.\n"
         + "\n"
         + "Můžeš zadat tyto příkazy:\n"
-        + platnePrikazy.vratNazvyPrikazu();
+        + "  jdi <název prostoru>\n"
+        + "  seber <název předmětu>\n"
+        + "  polož <název předmětu>\n"
+        + "  vypiš\n"
+        + "  pij <název nápoje>\n"
+        + "  kup <název předmětu>\n"
+        + "  prozkoumej <název předmětu>\n"
+        + "  promluv <jméno postavy>\n"
+        + "  naplň <název lahve>\n"
+        + "  sedni\n"
+        + "  rozbij <název předmětu>\n"
+        + "  nápověda\n"
+        + "  log\n"
+        + "  konec";
     }
     
     @Override

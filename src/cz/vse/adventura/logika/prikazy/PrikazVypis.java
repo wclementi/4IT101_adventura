@@ -1,9 +1,12 @@
 package cz.vse.adventura.logika.prikazy;
 import cz.vse.adventura.logika.*;
-import cz.vse.adventura.logika.predmety.*;
-import cz.vse.adventura.logika.prikazy.*;
-import cz.vse.adventura.logika.npc.*;
 
+
+/**
+ * Příkaz pro vypsání obsahu batohu.
+ *
+ * @author Kajetan Franciszek Wielgosz
+ */
 public class PrikazVypis implements IPrikaz {
     private static final String NAZEV = "vypiš";
     private HerniPlan plan;

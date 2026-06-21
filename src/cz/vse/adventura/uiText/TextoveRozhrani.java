@@ -11,6 +11,11 @@ import java.util.Scanner;
 
 import cz.vse.adventura.logika.IHra;
 
+/**
+ * Třída obstarávající textové uživatelské rozhraní hry.
+ *
+ * @author Kajetan Franciszek Wielgosz
+ */
 public class TextoveRozhrani {
     private IHra hra;
     private Scanner scanner;
@@ -20,24 +25,71 @@ public class TextoveRozhrani {
         this.scanner = new Scanner(System.in);
     }
 
+    private void vymazKonzoli() {
+        try {
+            if (System.getProperty("os.name").contains("Windows")) {
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            } else {
+                System.out.print("\033[H\033[2J");
+                System.out.flush();
+            }
+        } catch (Exception e) {
+            // Nouzový fallback pro vývojová prostředí, která nepodporují příkazy OS
+            for (int i = 0; i < 50; i++) {
+                System.out.println();
+            }
+        }
+    }
+
+    /**
+     * Spustí hlavní smyčku hry a textového rozhraní.
+     */
     public void hraj() {
-        System.out.println(hra.vratUvitani());
+        String posledniOdpoved = hra.vratUvitani();
 
         while (!hra.konecHry()) {
+            vymazKonzoli();
+            if (!posledniOdpoved.isEmpty()) {
+                System.out.println(posledniOdpoved);
+                System.out.println("\n======================================================================\n");
+            }
+
             String radek = prectiString();
-            System.out.println(hra.zpracujPrikaz(radek));
+            posledniOdpoved = hra.zpracujPrikaz(radek);
+
+            if (radek.startsWith("promluv") || radek.startsWith("log") || radek.startsWith("nápověda")) {
+                vymazKonzoli();
+                System.out.println(posledniOdpoved);
+                System.out.println("\n[Stiskněte ENTER pro návrat do hry...]");
+                scanner.nextLine();
+                
+                // Po návratu ukážeme znovu lokaci, aby hráč věděl, kde je
+                if (!hra.konecHry()) {
+                    posledniOdpoved = hra.getHerniPlan().getAktualniProstor().dlouhyPopis();
+                } else {
+                    posledniOdpoved = "";
+                }
+            }
         }
 
+        vymazKonzoli();
         System.out.println(hra.vratEpilog());
     }
 
+    /**
+     * Spustí hru v automatizovaném režimu, kde čte příkazy ze zadaného souboru a zapisuje výstup.
+     * @param nazevSouboru požadovaný vstup nazevSouboru
+     */
     public void hrajZeSouboru(String nazevSouboru) {
         try (
             BufferedReader cteni = new BufferedReader(new FileReader(nazevSouboru));
             PrintWriter zapis = new PrintWriter(new FileWriter("vystup.txt"))
         ) {
             System.out.println(hra.vratUvitani());
+            System.out.println("\n======================================================================\n");
+            
             zapis.println(hra.vratUvitani());
+            zapis.println("\n======================================================================\n");
 
             for (String radek = cteni.readLine(); radek != null && !hra.konecHry(); radek = cteni.readLine())
             {
@@ -46,8 +98,13 @@ public class TextoveRozhrani {
 
                 String vystup = hra.zpracujPrikaz(radek);
 
+                System.out.println("\n----------------------------------------------------------------------");
                 System.out.println(vystup);
+                System.out.println("======================================================================\n");
+                
+                zapis.println("\n----------------------------------------------------------------------");
                 zapis.println(vystup);
+                zapis.println("======================================================================\n");
             }
 
             System.out.println(hra.vratEpilog());

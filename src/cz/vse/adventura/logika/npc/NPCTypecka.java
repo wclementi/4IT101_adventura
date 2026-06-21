@@ -3,6 +3,11 @@ package cz.vse.adventura.logika.npc;
 import cz.vse.adventura.logika.predmety.Batoh;
 import cz.vse.adventura.logika.predmety.Vec;
 
+/**
+ * Třída představující specifické NPC - Typečku, která půjčuje telefon.
+ *
+ * @author Kajetan Franciszek Wielgosz
+ */
 public class NPCTypecka extends NPCPouzeMluvici {
     private boolean pujcilaMobil = false;
     private boolean vraceno = false;

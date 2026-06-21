@@ -1,9 +1,11 @@
 package cz.vse.adventura.logika;
-import cz.vse.adventura.logika.predmety.*;
-import cz.vse.adventura.logika.prikazy.*;
-import cz.vse.adventura.logika.npc.*;
 
 // ukol 12. tyden: Dědičnost
+/**
+ * Speciální typ prostoru, který se chová odlišně (např. omezuje vstup).
+ *
+ * @author Kajetan Franciszek Wielgosz
+ */
 public class ProstorSpecialni extends Prostor {
     private boolean zamceno;
 
@@ -12,10 +14,18 @@ public class ProstorSpecialni extends Prostor {
         this.zamceno = zamceno;
     }
 
+    /**
+     * Metoda pro isZamceno.
+     * @return logický výsledek volání
+     */
     public boolean isZamceno() {
         return zamceno;
     }
 
+    /**
+     * Metoda pro setZamceno.
+     * @param zamceno požadovaný vstup zamceno
+     */
     public void setZamceno(boolean zamceno) {
         this.zamceno = zamceno;
     }

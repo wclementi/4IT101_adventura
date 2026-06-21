@@ -1,10 +1,12 @@
 package cz.vse.adventura.logika.npc;
-import cz.vse.adventura.logika.*;
 import cz.vse.adventura.logika.predmety.*;
-import cz.vse.adventura.logika.prikazy.*;
-import cz.vse.adventura.logika.npc.*;
 
 // ukol 12. tyden: Dědičnost
+/**
+ * Třída představující specifické NPC - Spolužáka, který dává mince.
+ *
+ * @author Kajetan Franciszek Wielgosz
+ */
 public class NPCSpoluzak extends NPCPouzeMluvici {
     private boolean dalPenize;
 
@@ -13,6 +15,11 @@ public class NPCSpoluzak extends NPCPouzeMluvici {
         this.dalPenize = false;
     }
 
+    /**
+     * Metoda pro dejPenize.
+     * @param batoh požadovaný vstup batoh
+     * @return logický výsledek volání
+     */
     public boolean dejPenize(Batoh batoh) {
         if (!dalPenize) {
             try {

@@ -1,10 +1,11 @@
 package cz.vse.adventura.logika.npc;
-import cz.vse.adventura.logika.*;
-import cz.vse.adventura.logika.predmety.*;
-import cz.vse.adventura.logika.prikazy.*;
-import cz.vse.adventura.logika.npc.*;
 
 // ukol 12. tyden: Dědičnost
+/**
+ * Základní třída pro postavy, se kterými lze pouze komunikovat.
+ *
+ * @author Kajetan Franciszek Wielgosz
+ */
 public class NPCPouzeMluvici {
     protected String jmeno;
     protected String text;
@@ -14,10 +15,18 @@ public class NPCPouzeMluvici {
         this.text = text;
     }
 
+    /**
+     * Metoda pro getJmeno.
+     * @return logický výsledek volání
+     */
     public String getJmeno() {
         return jmeno;
     }
 
+    /**
+     * Vrátí text dialogu této postavy.
+     * @return logický výsledek volání
+     */
     public String mluv() {
         return text;
     }

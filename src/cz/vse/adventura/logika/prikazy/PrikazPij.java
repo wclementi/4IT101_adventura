@@ -1,9 +1,11 @@
 package cz.vse.adventura.logika.prikazy;
 import cz.vse.adventura.logika.*;
-import cz.vse.adventura.logika.predmety.*;
-import cz.vse.adventura.logika.prikazy.*;
-import cz.vse.adventura.logika.npc.*;
 
+/**
+ * Příkaz pro vypití nápoje za účelem zahnání žízně.
+ *
+ * @author Kajetan Franciszek Wielgosz
+ */
 public class PrikazPij implements IPrikaz {
     private static final String NAZEV = "pij";
     private HerniPlan plan;

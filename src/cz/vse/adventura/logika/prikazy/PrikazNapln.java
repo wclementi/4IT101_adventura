@@ -3,6 +3,11 @@ package cz.vse.adventura.logika.prikazy;
 import cz.vse.adventura.logika.*;
 import cz.vse.adventura.logika.predmety.*;
 
+/**
+ * Příkaz pro naplnění lahve vodou z automatu Lokni si.
+ *
+ * @author Kajetan Franciszek Wielgosz
+ */
 public class PrikazNapln implements IPrikaz {
     private static final String NAZEV = "naplň";
     private HerniPlan plan;
