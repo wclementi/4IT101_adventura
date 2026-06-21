@@ -123,6 +123,14 @@ public class Hra implements IHra {
     }
 
     /**
+     * Metoda pro getStavHry.
+     * @return aktuální stav hry
+     */
+    public StavHry getStavHry() {
+        return stavHry;
+    }
+
+    /**
      * Metoda pro setUspokojenaZizen.
      * @param stav parametr metody
      */

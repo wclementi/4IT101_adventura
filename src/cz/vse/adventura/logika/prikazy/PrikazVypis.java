@@ -1,6 +1,6 @@
 package cz.vse.adventura.logika.prikazy;
 import cz.vse.adventura.logika.*;
-import cz.vse.adventura.logika.predmety.*;
+
 
 /**
  * Příkaz pro vypsání obsahu batohu.
