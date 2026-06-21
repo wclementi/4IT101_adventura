@@ -1,4 +1,4 @@
-﻿package cz.vse.adventura.logika.predmety;
+package cz.vse.adventura.logika.predmety;
 
 import java.util.HashMap;
 import java.util.Map;

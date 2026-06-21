@@ -1,4 +1,4 @@
-﻿package cz.vse.adventura.uiText;
+package cz.vse.adventura.uiText;
 
 import java.io.BufferedReader;
 import java.io.File;

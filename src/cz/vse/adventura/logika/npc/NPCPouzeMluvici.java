@@ -1,4 +1,4 @@
-﻿package cz.vse.adventura.logika.npc;
+package cz.vse.adventura.logika.npc;
 
 // ukol 12. tyden: Dědičnost
 /**

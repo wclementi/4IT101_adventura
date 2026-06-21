@@ -1,4 +1,4 @@
-﻿package cz.vse.adventura.logika.npc;
+package cz.vse.adventura.logika.npc;
 
 import cz.vse.adventura.logika.predmety.Batoh;
 import cz.vse.adventura.logika.predmety.Vec;

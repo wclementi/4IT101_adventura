@@ -1,4 +1,4 @@
-﻿package cz.vse.adventura.logika.prikazy;
+package cz.vse.adventura.logika.prikazy;
 
 /**
  * Příkaz pro zobrazení nápovědy a seznamu příkazů.

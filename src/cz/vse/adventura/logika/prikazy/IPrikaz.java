@@ -1,4 +1,4 @@
-﻿package cz.vse.adventura.logika.prikazy;
+package cz.vse.adventura.logika.prikazy;
 
 /**
  * Rozhraní, které musí implementovat všechny příkazy ve hře.

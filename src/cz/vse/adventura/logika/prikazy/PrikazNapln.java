@@ -1,4 +1,4 @@
-﻿package cz.vse.adventura.logika.prikazy;
+package cz.vse.adventura.logika.prikazy;
 
 import cz.vse.adventura.logika.*;
 import cz.vse.adventura.logika.predmety.*;

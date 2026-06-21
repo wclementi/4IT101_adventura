@@ -1,4 +1,4 @@
-﻿package cz.vse.adventura.logika;
+package cz.vse.adventura.logika;
 
 /**
  * Rozhraní pro hru, zajišťuje oddělení UI od logiky hry.

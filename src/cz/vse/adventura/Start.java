@@ -1,4 +1,4 @@
-﻿package cz.vse.adventura;
+package cz.vse.adventura;
 
 import cz.vse.adventura.logika.Hra;
 import cz.vse.adventura.logika.IHra;

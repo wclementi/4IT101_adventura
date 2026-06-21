@@ -1,4 +1,4 @@
-﻿package cz.vse.adventura.logika.prikazy;
+package cz.vse.adventura.logika.prikazy;
 
 import java.util.HashMap;
 import java.util.Map;

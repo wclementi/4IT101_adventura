@@ -1,4 +1,4 @@
-﻿package cz.vse.adventura.logika.predmety;
+package cz.vse.adventura.logika.predmety;
 
 /**
  * Třída představující předmět, který lze sebrat, položit nebo použít.
