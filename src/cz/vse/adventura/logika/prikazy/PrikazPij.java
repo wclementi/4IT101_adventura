@@ -29,11 +29,11 @@ public class PrikazPij implements IPrikaz {
         }
 
         if (nazev.equals("plná_lahev_od_sava")) {
-            hra.setStavHry(StavHry.PROHRA);
-            return "Vypil jsi vodu ze špinavé lahve od sava. Udělalo se ti hrozně špatně a zkolaboval jsi.";
+            hra.setVypitoSavo(true);
+            return "Vypil jsi něco z lahve od sava. Udělalo se ti docela špatně, ale zatím se držíš na nohou. Měl by sis jít rychle sednout na přednášku.";
         } else {
-            hra.setStavHry(StavHry.VYHRA);
-            return "Vypil jsi '" + nazev + "'. Výborně osvěžující! Žízeň je zahnána. Můžeš pokračovat na přednášku.";
+            hra.setUspokojenaZizen(true);
+            return "Vypil jsi '" + nazev + "'. Výborně osvěžující! Žízeň je zahnána. Můžeš pokračovat na přednášku a usadit se.";
         }
     }
 

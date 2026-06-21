@@ -10,7 +10,7 @@ public class PrikazFactory {
     public static IPrikaz vytvorPrikaz(String typPrikazu, HerniPlan plan, SeznamPrikazu seznamPrikazu, Hra hra) {
         switch (typPrikazu) {
             case "jdi":
-                return new PrikazJdi(plan);
+                return new PrikazJdi(plan, hra);
             case "konec":
                 return new PrikazKonec(hra);
             case "seber":
@@ -31,6 +31,10 @@ public class PrikazFactory {
                 return new PrikazNapln(plan);
             case "nápověda":
                 return new PrikazNapoveda(seznamPrikazu);
+            case "sedni":
+                return new PrikazSedni(plan, hra);
+            case "rozbij":
+                return new PrikazRozbij(plan, hra);
             default:
                 return null;
         }

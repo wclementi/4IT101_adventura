@@ -134,7 +134,7 @@ public class HerniPlan {
     }
     
     public void kupVec(String nazev) throws Exception {
-        if (!aktualniProstor.jeVecVProstoru("automat")) {
+        if (!aktualniProstor.jeVecVProstoru("automat") && !aktualniProstor.jeVecVProstoru("LOKNI_SI_automat") && !aktualniProstor.jeVecVProstoru("nápojový_automat")) {
             throw new Exception("Tady není automat, kde by se dalo nakupovat.");
         }
         if (!batoh.jeVecVBatohu("mince")) {

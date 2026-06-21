@@ -85,4 +85,8 @@ public class Batoh
         }
         return vracenyText;
     }
+
+    public void vymazBatoh() {
+        veci.clear();
+    }
 }

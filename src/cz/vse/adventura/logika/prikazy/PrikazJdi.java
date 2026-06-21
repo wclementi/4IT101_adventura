@@ -7,9 +7,11 @@ import cz.vse.adventura.logika.npc.*;
 public class PrikazJdi implements IPrikaz {
     private static final String NAZEV = "jdi";
     private HerniPlan plan;
+    private Hra hra;
     
-    public PrikazJdi(HerniPlan plan) {
+    public PrikazJdi(HerniPlan plan, Hra hra) {
         this.plan = plan;
+        this.hra = hra;
     }
 
     @Override
@@ -34,6 +36,10 @@ public class PrikazJdi implements IPrikaz {
             }
 
             plan.setAktualniProstor(sousedniProstor);
+            if (sousedniProstor.getNazev().equals("vychod_z_VSE")) {
+                hra.setKonecHryS_Epilogem(StavHry.CHAOTIC_ENDING, "“Stejně nejsem studyjní typ” řekl sis cestou ven z VŠE.");
+                return sousedniProstor.dlouhyPopis() + "\n\n" + hra.vratEpilog();
+            }
             return sousedniProstor.dlouhyPopis();
         }
     }
