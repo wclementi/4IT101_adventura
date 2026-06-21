@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class HraTest {
 
@@ -29,9 +30,10 @@ public class HraTest {
         hra.zpracujPrikaz("pij nápoj");
         hra.zpracujPrikaz("jdi likesova_aula");
         hra.zpracujPrikaz("sedni");
-        
+
         assertTrue(hra.konecHry());
-        assertTrue(hra.vratEpilog().contains("Uspokojil sis svojí žízeň a stihnul přednášku, další přežitý den na VŠE"));
+        assertTrue(
+                hra.vratEpilog().contains("Uspokojil sis svojí žízeň a stihnul přednášku, další přežitý den na VŠE"));
     }
 
     @Test
@@ -52,7 +54,7 @@ public class HraTest {
         hra.zpracujPrikaz("jdi chodba_v_nove_budove");
         hra.zpracujPrikaz("jdi likesova_aula");
         hra.zpracujPrikaz("sedni");
-        
+
         assertTrue(hra.konecHry());
         assertTrue(hra.vratEpilog().contains("ale za jakou cenu?"));
     }
@@ -64,7 +66,7 @@ public class HraTest {
         hra.zpracujPrikaz("jdi chodba_prizemi");
         hra.zpracujPrikaz("jdi recepce");
         hra.zpracujPrikaz("jdi vychod_z_VSE");
-        
+
         assertTrue(hra.konecHry());
         assertTrue(hra.vratEpilog().contains("Stejně nejsem studyjní typ"));
     }
@@ -74,7 +76,7 @@ public class HraTest {
         for (int i = 0; i < 35; i++) {
             hra.zpracujPrikaz("jdi blbost");
         }
-        
+
         assertTrue(hra.konecHry());
         assertTrue(hra.vratEpilog().contains("Kouknul jsi na hodinky a uvědomil sis, že jdeš pozdě."));
     }
@@ -88,7 +90,7 @@ public class HraTest {
         hra.zpracujPrikaz("jdi chodba_v_nove_budove");
         hra.zpracujPrikaz("jdi likesova_aula");
         hra.zpracujPrikaz("sedni");
-        
+
         assertTrue(hra.konecHry());
         assertTrue(hra.vratEpilog().contains("zkolaboval kvůli vážné dehydrataci"));
     }
@@ -102,8 +104,33 @@ public class HraTest {
         hra.zpracujPrikaz("jdi chodba_v_nove_budove");
         hra.zpracujPrikaz("jdi vencovskeho_aula");
         hra.zpracujPrikaz("sedni");
-        
+
         assertTrue(hra.konecHry());
         assertTrue(hra.vratEpilog().contains("jsi na špatné přednášce"));
+    }
+
+    @Test
+    public void testNeprenositelnaVec() {
+        hra.zpracujPrikaz("jdi chodba_1_patro");
+        hra.zpracujPrikaz("jdi schodiste");
+        hra.zpracujPrikaz("jdi chodba_prizemi");
+        hra.zpracujPrikaz("jdi chodba_do_nove_budovy");
+
+        String odpoved = hra.zpracujPrikaz("seber LOKNI_SI_automat");
+
+        assertTrue(odpoved.contains("Tuto věc nelze přenášet"),
+                "Měla by se zobrazit zpráva o nepřenositelném předmětu");
+        assertFalse(cz.vse.adventura.logika.predmety.Batoh.getInstance().jeVecVBatohu("LOKNI_SI_automat"),
+                "Automat by neměl být v batohu");
+    }
+
+    @Test
+    public void testSeberVecABatoh() {
+        hra.zpracujPrikaz("jdi chodba_1_patro");
+        String odpoved = hra.zpracujPrikaz("seber učebnice_ekonomie");
+
+        assertTrue(odpoved.contains("je nyní v batohu"), "Zpráva by měla potvrdit sebrání");
+        assertTrue(cz.vse.adventura.logika.predmety.Batoh.getInstance().jeVecVBatohu("učebnice_ekonomie"),
+                "Věc by měla být v batohu");
     }
 }

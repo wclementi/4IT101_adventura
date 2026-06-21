@@ -1,0 +1,12 @@
+jdi chodba_1_patro
+seber učebnice_ekonomie
+jdi schodiste
+jdi chodba_prizemi
+seber mince
+jdi chodba_do_nove_budovy
+jdi chodba_v_nove_budove
+kup nápoj
+seber nápoj
+pij nápoj
+jdi likesova_aula
+sedni
