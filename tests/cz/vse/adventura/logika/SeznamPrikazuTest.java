@@ -1,5 +1,8 @@
 package cz.vse.adventura.logika;
 
+import cz.vse.adventura.logika.prikazy.PrikazJdi;
+import cz.vse.adventura.logika.prikazy.PrikazKonec;
+import cz.vse.adventura.logika.prikazy.SeznamPrikazu;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -15,7 +18,7 @@ public class SeznamPrikazuTest
     public void setUp() {
         hra = new Hra();
         prKonec = new PrikazKonec(hra);
-        prJdi = new PrikazJdi(hra.getHerniPlan());
+        prJdi = new PrikazJdi(hra.getHerniPlan(), hra);
     }
 
     @Test
