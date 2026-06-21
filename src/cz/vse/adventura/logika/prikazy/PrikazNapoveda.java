@@ -20,7 +20,20 @@ public class PrikazNapoveda implements IPrikaz {
         + "Najdi na škole bufet a prohledej okolí, jestli nemáš nějaké mince.\n"
         + "\n"
         + "Můžeš zadat tyto příkazy:\n"
-        + platnePrikazy.vratNazvyPrikazu();
+        + "  jdi <název prostoru>\n"
+        + "  seber <název předmětu>\n"
+        + "  polož <název předmětu>\n"
+        + "  vypiš\n"
+        + "  pij <název nápoje>\n"
+        + "  kup <název předmětu>\n"
+        + "  prozkoumej <název předmětu>\n"
+        + "  promluv <jméno postavy>\n"
+        + "  naplň <název lahve>\n"
+        + "  sedni\n"
+        + "  rozbij <název předmětu>\n"
+        + "  nápověda\n"
+        + "  log\n"
+        + "  konec";
     }
     
     @Override
