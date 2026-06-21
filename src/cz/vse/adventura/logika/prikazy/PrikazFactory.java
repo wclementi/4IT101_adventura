@@ -45,6 +45,8 @@ public class PrikazFactory {
                 return new PrikazSedni(plan, hra);
             case "rozbij":
                 return new PrikazRozbij(plan, hra);
+            case "log":
+                return new PrikazLog(hra);
             default:
                 return null;
         }

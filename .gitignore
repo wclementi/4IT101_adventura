@@ -45,3 +45,4 @@ Thumbs.db
 *.mov
 *.wmv
 vystup.txt
+out/artifacts/adventura_jar/start.bat

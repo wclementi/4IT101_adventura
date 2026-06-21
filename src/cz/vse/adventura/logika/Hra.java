@@ -2,6 +2,9 @@ package cz.vse.adventura.logika;
 
 import cz.vse.adventura.logika.prikazy.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Hlavní třída logiky hry. Inicializuje hru, předává příkazy parseru a spravuje stav hry.
  *
@@ -19,6 +22,8 @@ public class Hra implements IHra {
 
     // ukol 12. tyden: Enum pro stav hry
     private StavHry stavHry;
+
+    private List<String> historie = new ArrayList<>();
 
     public Hra() {
         herniPlan = new HerniPlan();
@@ -39,6 +44,7 @@ public class Hra implements IHra {
         platnePrikazy.vlozPrikaz(PrikazFactory.vytvorPrikaz("naplň", herniPlan, null, this));
         platnePrikazy.vlozPrikaz(PrikazFactory.vytvorPrikaz("sedni", herniPlan, null, this));
         platnePrikazy.vlozPrikaz(PrikazFactory.vytvorPrikaz("rozbij", herniPlan, null, this));
+        platnePrikazy.vlozPrikaz(PrikazFactory.vytvorPrikaz("log", herniPlan, null, this));
     }
 
     /**
@@ -100,7 +106,19 @@ public class Hra implements IHra {
         } else {
             textKVypsani = "Nevím co tím myslíš? Tento příkaz neznám. ";
         }
+        
+        historie.add("> " + radek);
+        historie.add(textKVypsani);
+        
         return textKVypsani;
+    }
+
+    /**
+     * Metoda pro getHistorie.
+     * @return seznam historických záznamů
+     */
+    public List<String> getHistorie() {
+        return historie;
     }
 
     /**

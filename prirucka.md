@@ -39,6 +39,7 @@ Zde je seznam platných příkazů:
 - `rozbij <předmět>` – Agresivní řešení problémů s automatem (použít na vlastní nebezpečí!).
 - `sedni` – Sedne si na místo. Pokud jste ve správné aule a máte zahnánu žízeň, vyhrajete.
 - `nápověda` – Zobrazí tento seznam příkazů přímo ve hře.
+- `log` – Zobrazí kompletní historii vašich dosavadních kroků (příkazy a odpovědi).
 - `konec` – Okamžitě hru ukončí.
 
 ## Automatické hraní ze souboru
