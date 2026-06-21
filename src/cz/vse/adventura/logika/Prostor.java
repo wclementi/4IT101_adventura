@@ -1,4 +1,7 @@
 package cz.vse.adventura.logika;
+import cz.vse.adventura.logika.predmety.*;
+import cz.vse.adventura.logika.prikazy.*;
+import cz.vse.adventura.logika.npc.*;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -9,12 +12,14 @@ public class Prostor {
     private String popis;
     private Set<Prostor> vychody;
     private Map<String, Vec> veci;
+    private Map<String, NPCPouzeMluvici> postavy;
 
     public Prostor(String nazev, String popis) {
         this.nazev = nazev;
         this.popis = popis;
         vychody = new HashSet<>();
         veci = new HashMap<>();
+        postavy = new HashMap<>();
     }
 
     public boolean jeVecVProstoru(String nazev)
@@ -40,6 +45,14 @@ public class Prostor {
     public Vec odeberVec(Vec vec)
     {
         return veci.remove(vec.getNazev());
+    }
+
+    public void pridejPostavu(NPCPouzeMluvici postava) {
+        postavy.put(postava.getJmeno(), postava);
+    }
+
+    public NPCPouzeMluvici getPostava(String jmeno) {
+        return postavy.get(jmeno);
     }
 
     public void setVychod(Prostor vedlejsi) {
@@ -74,7 +87,8 @@ public class Prostor {
     public String dlouhyPopis() {
         return "Jsi v mistnosti/prostoru " + popis + ".\n"
                 + popisVychodu() + "\n"
-                + popisVeci();
+                + popisVeci() + "\n"
+                + popisPostav();
     }
 
     private String popisVychodu() {
@@ -90,6 +104,14 @@ public class Prostor {
         for(Vec vec : veci.values())
         {
             vracenyText += " " + vec.getNazev();
+        }
+        return vracenyText;
+    }
+
+    private String popisPostav() {
+        String vracenyText = "postavy:";
+        for (String jmenoPostavy : postavy.keySet()) {
+            vracenyText += " " + jmenoPostavy;
         }
         return vracenyText;
     }

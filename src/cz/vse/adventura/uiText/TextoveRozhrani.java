@@ -13,9 +13,11 @@ import cz.vse.adventura.logika.IHra;
 
 public class TextoveRozhrani {
     private IHra hra;
+    private Scanner scanner;
 
     public TextoveRozhrani(IHra hra) {
         this.hra = hra;
+        this.scanner = new Scanner(System.in);
     }
 
     public void hraj() {
@@ -60,7 +62,6 @@ public class TextoveRozhrani {
     }
 
     private String prectiString() {
-        Scanner scanner = new Scanner(System.in);
         System.out.print("> ");
         return scanner.nextLine();
     }

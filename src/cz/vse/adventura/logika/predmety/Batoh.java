@@ -1,4 +1,8 @@
-package cz.vse.adventura.logika;
+package cz.vse.adventura.logika.predmety;
+import cz.vse.adventura.logika.*;
+import cz.vse.adventura.logika.predmety.*;
+import cz.vse.adventura.logika.prikazy.*;
+import cz.vse.adventura.logika.npc.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,6 +15,7 @@ public class Batoh
     private int maximalniKapacita = 5;
     private int maximalniNosnost = 6;
     private Map<String, Vec> veci = new HashMap<>();
+    private boolean telefonPouzit = false;
 
     private Batoh() {}
 
@@ -80,5 +85,18 @@ public class Batoh
             vracenyText += " " + nazev;
         }
         return vracenyText;
+    }
+
+    public void vymazBatoh() {
+        veci.clear();
+        telefonPouzit = false;
+    }
+
+    public boolean isTelefonPouzit() {
+        return telefonPouzit;
+    }
+
+    public void setTelefonPouzit(boolean telefonPouzit) {
+        this.telefonPouzit = telefonPouzit;
     }
 }
