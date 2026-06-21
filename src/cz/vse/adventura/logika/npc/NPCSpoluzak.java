@@ -17,8 +17,8 @@ public class NPCSpoluzak extends NPCPouzeMluvici {
 
     /**
      * Metoda pro dejPenize.
-     * @param batoh parametr metody
-     * @return hodnota z metody
+     * @param batoh požadovaný vstup batoh
+     * @return logický výsledek volání
      */
     public boolean dejPenize(Batoh batoh) {
         if (!dalPenize) {

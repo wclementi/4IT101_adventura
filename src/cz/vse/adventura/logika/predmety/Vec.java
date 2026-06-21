@@ -18,8 +18,8 @@ public class Vec
     }
 
     /**
-     * Metoda pro getNazev.
-     * @return hodnota z metody
+     * Vrátí název této instance (předmětu, prostoru, příkazu či postavy).
+     * @return logický výsledek volání
      */
     public String getNazev() {
         return nazev;
@@ -27,15 +27,15 @@ public class Vec
 
     /**
      * Metoda pro setNazev.
-     * @param nazev parametr metody
+     * @param nazev hledaný název
      */
     public void setNazev(String nazev) {
         this.nazev = nazev;
     }
 
     /**
-     * Metoda pro isPrenositelna.
-     * @return hodnota z metody
+     * Zjišťuje, zda je předmět možné sebrat a přenášet v batohu.
+     * @return logický výsledek volání
      */
     public boolean isPrenositelna() {
         return prenositelna;
@@ -43,15 +43,15 @@ public class Vec
 
     /**
      * Metoda pro setPrenositelna.
-     * @param prenositelna parametr metody
+     * @param prenositelna požadovaný vstup prenositelna
      */
     public void setPrenositelna(boolean prenositelna) {
         this.prenositelna = prenositelna;
     }
 
     /**
-     * Metoda pro getHmotnost.
-     * @return hodnota z metody
+     * Vrátí hmotnost předmětu.
+     * @return logický výsledek volání
      */
     public int getHmotnost() {
         return hmotnost;
@@ -59,7 +59,7 @@ public class Vec
 
     /**
      * Metoda pro setHmotnost.
-     * @param hmotnost parametr metody
+     * @param hmotnost požadovaný vstup hmotnost
      */
     public void setHmotnost(int hmotnost) {
         this.hmotnost = hmotnost;

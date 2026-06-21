@@ -13,7 +13,7 @@ public class Start
 {
     /**
      * Metoda pro main.
-     * @param args parametr metody
+     * @param args požadovaný vstup args
      */
     public static void main(String[] args)
     {

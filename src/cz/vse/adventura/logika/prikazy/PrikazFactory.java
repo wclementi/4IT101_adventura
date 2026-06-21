@@ -10,12 +10,12 @@ import cz.vse.adventura.logika.*;
 public class PrikazFactory {
     
     /**
-     * Metoda pro vytvorPrikaz.
-     * @param typPrikazu parametr metody
-     * @param plan parametr metody
-     * @param seznamPrikazu parametr metody
-     * @param hra parametr metody
-     * @return hodnota z metody
+     * Vytvoří a vrátí instanci specifického příkazu na základě jeho textového názvu.
+     * @param typPrikazu požadovaný vstup typPrikazu
+     * @param plan požadovaný vstup plan
+     * @param seznamPrikazu požadovaný vstup seznamPrikazu
+     * @param hra požadovaný vstup hra
+     * @return logický výsledek volání
      */
     public static IPrikaz vytvorPrikaz(String typPrikazu, HerniPlan plan, SeznamPrikazu seznamPrikazu, Hra hra) {
         switch (typPrikazu) {

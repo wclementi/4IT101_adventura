@@ -48,8 +48,8 @@ public class Hra implements IHra {
     }
 
     /**
-     * Metoda pro vratUvitani.
-     * @return hodnota z metody
+     * Vrátí uvítací text pro hráče při zahájení hry.
+     * @return logický výsledek volání
      */
     public String vratUvitani() {
         return "Vítejte na VŠE!\n" +
@@ -61,25 +61,25 @@ public class Hra implements IHra {
     }
 
     /**
-     * Metoda pro vratEpilog.
-     * @return hodnota z metody
+     * Vrátí závěrečný text pro hráče po ukončení hry.
+     * @return logický výsledek volání
      */
     public String vratEpilog() {
         return textEpilogu;
     }
 
     /**
-     * Metoda pro konecHry.
-     * @return hodnota z metody
+     * Vrací informaci, zda hra již skončila (výhrou, prohrou nebo příkazem konec).
+     * @return logický výsledek volání
      */
     public boolean konecHry() {
         return konecHry;
     }
 
     /**
-     * Metoda pro zpracujPrikaz.
-     * @param radek parametr metody
-     * @return hodnota z metody
+     * Zpracuje textový řetězec zadaný hráčem, rozdělí jej na slova a deleguje zpracování příslušnému příkazu. Vrací odpověď hry.
+     * @param radek textový příkaz od uživatele
+     * @return logický výsledek volání
      */
     public String zpracujPrikaz(String radek) {
         String[] slova = radek.split("[ \t]+");
@@ -114,7 +114,7 @@ public class Hra implements IHra {
     }
 
     /**
-     * Metoda pro getHistorie.
+     * Vrátí kompletní historii zadaných příkazů a odpovědí hry.
      * @return seznam historických záznamů
      */
     public List<String> getHistorie() {
@@ -122,17 +122,17 @@ public class Hra implements IHra {
     }
 
     /**
-     * Metoda pro setKonecHry.
-     * @param konecHry parametr metody
+     * Nastaví indikátor konce hry na zadanou hodnotu.
+     * @param konecHry požadovaný vstup konecHry
      */
     public void setKonecHry(boolean konecHry) {
         this.konecHry = konecHry;
     }
 
     /**
-     * Metoda pro setKonecHryS_Epilogem.
-     * @param stav parametr metody
-     * @param epilog parametr metody
+     * Ukončí hru se specifickým stavem a nastaví odpovídající epilog.
+     * @param stav požadovaný vstup stav
+     * @param epilog závěrečný text po ukončení
      */
     public void setKonecHryS_Epilogem(StavHry stav, String epilog) {
         this.stavHry = stav;
@@ -141,7 +141,7 @@ public class Hra implements IHra {
     }
 
     /**
-     * Metoda pro getStavHry.
+     * Vrátí aktuální stav hry (např. PROBIHA, GOOD_ENDING, atd.).
      * @return aktuální stav hry
      */
     public StavHry getStavHry() {
@@ -149,16 +149,16 @@ public class Hra implements IHra {
     }
 
     /**
-     * Metoda pro setUspokojenaZizen.
-     * @param stav parametr metody
+     * Nastaví, zda si hráč již uspokojil žízeň.
+     * @param stav požadovaný vstup stav
      */
     public void setUspokojenaZizen(boolean stav) {
         this.uspokojenaZizen = stav;
     }
 
     /**
-     * Metoda pro isUspokojenaZizen.
-     * @return hodnota z metody
+     * Vrací informaci, zda již byla žízeň hráče uspokojena.
+     * @return logický výsledek volání
      */
     public boolean isUspokojenaZizen() {
         return uspokojenaZizen;
@@ -166,7 +166,7 @@ public class Hra implements IHra {
 
     /**
      * Metoda pro setVypitoSavo.
-     * @param stav parametr metody
+     * @param stav požadovaný vstup stav
      */
     public void setVypitoSavo(boolean stav) {
         this.vypitoSavo = stav;
@@ -174,7 +174,7 @@ public class Hra implements IHra {
 
     /**
      * Metoda pro isVypitoSavo.
-     * @return hodnota z metody
+     * @return logický výsledek volání
      */
     public boolean isVypitoSavo() {
         return vypitoSavo;
@@ -182,7 +182,7 @@ public class Hra implements IHra {
 
     /**
      * Metoda pro setRozbityAutomat.
-     * @param stav parametr metody
+     * @param stav požadovaný vstup stav
      */
     public void setRozbityAutomat(boolean stav) {
         this.rozbityAutomat = stav;
@@ -190,15 +190,15 @@ public class Hra implements IHra {
 
     /**
      * Metoda pro isRozbityAutomat.
-     * @return hodnota z metody
+     * @return logický výsledek volání
      */
     public boolean isRozbityAutomat() {
         return rozbityAutomat;
     }
 
     /**
-     * Metoda pro getHerniPlan.
-     * @return hodnota z metody
+     * Vrátí odkaz na aktuální herní plán (mapu) obsahující místnosti a jejich propojení.
+     * @return logický výsledek volání
      */
     public HerniPlan getHerniPlan() {
         return herniPlan;

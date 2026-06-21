@@ -21,8 +21,8 @@ public class Batoh
     private Batoh() {}
 
     /**
-     * Metoda pro getInstance.
-     * @return hodnota z metody
+     * Vrátí jedinou (singleton) instanci batohu.
+     * @return logický výsledek volání
      */
     public static Batoh getInstance() {
         if (instance == null) {
@@ -32,9 +32,9 @@ public class Batoh
     }
 
     /**
-     * Metoda pro jeVecVBatohu.
-     * @param nazev parametr metody
-     * @return hodnota z metody
+     * Zjišťuje, zda se v batohu nachází předmět daného jména.
+     * @param nazev hledaný název
+     * @return logický výsledek volání
      */
     public boolean jeVecVBatohu(String nazev)
     {
@@ -42,9 +42,9 @@ public class Batoh
     }
 
     /**
-     * Metoda pro getVec.
-     * @param nazev parametr metody
-     * @return hodnota z metody
+     * Vrátí odkaz na předmět zadaného jména, který se nachází v prostoru (nebo batohu).
+     * @param nazev hledaný název
+     * @return logický výsledek volání
      */
     public Vec getVec(String nazev) throws Exception
     {
@@ -66,9 +66,9 @@ public class Batoh
     }
 
     /**
-     * Metoda pro odeberVec.
-     * @param nazev parametr metody
-     * @return hodnota z metody
+     * Odebere předmět zadaného jména z prostoru (nebo batohu) a vrátí na něj odkaz.
+     * @param nazev hledaný název
+     * @return logický výsledek volání
      */
     public Vec odeberVec(String nazev) throws Exception
     {
@@ -80,9 +80,9 @@ public class Batoh
     }
 
     /**
-     * Metoda pro pridejVec.
-     * @param vec parametr metody
-     * @return hodnota z metody
+     * Přidá zadaný předmět do prostoru (nebo batohu).
+     * @param vec požadovaný vstup vec
+     * @return logický výsledek volání
      */
     public Vec pridejVec(Vec vec) throws Exception
     {
@@ -102,8 +102,8 @@ public class Batoh
     }
 
     /**
-     * Metoda pro getPopisObsahu.
-     * @return hodnota z metody
+     * Vrátí textový výpis aktuálního obsahu batohu.
+     * @return logický výsledek volání
      */
     public String getPopisObsahu() {
         if (veci.isEmpty()) {
@@ -117,7 +117,7 @@ public class Batoh
     }
 
     /**
-     * Metoda pro vymazBatoh.
+     * Kompletně vyprázdní batoh (slouží zejména pro testování).
      */
     public void vymazBatoh() {
         veci.clear();
@@ -125,16 +125,16 @@ public class Batoh
     }
 
     /**
-     * Metoda pro isTelefonPouzit.
-     * @return hodnota z metody
+     * Zjišťuje, zda již hráč použil telefon u automatu.
+     * @return logický výsledek volání
      */
     public boolean isTelefonPouzit() {
         return telefonPouzit;
     }
 
     /**
-     * Metoda pro setTelefonPouzit.
-     * @param telefonPouzit parametr metody
+     * Nastaví příznak, zda byl telefon u automatu použit.
+     * @param telefonPouzit požadovaný vstup telefonPouzit
      */
     public void setTelefonPouzit(boolean telefonPouzit) {
         this.telefonPouzit = telefonPouzit;

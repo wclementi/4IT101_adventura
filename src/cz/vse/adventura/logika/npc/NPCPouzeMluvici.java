@@ -17,15 +17,15 @@ public class NPCPouzeMluvici {
 
     /**
      * Metoda pro getJmeno.
-     * @return hodnota z metody
+     * @return logický výsledek volání
      */
     public String getJmeno() {
         return jmeno;
     }
 
     /**
-     * Metoda pro mluv.
-     * @return hodnota z metody
+     * Vrátí text dialogu této postavy.
+     * @return logický výsledek volání
      */
     public String mluv() {
         return text;

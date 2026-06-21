@@ -16,17 +16,17 @@ public class SeznamPrikazu {
     }
     
     /**
-     * Metoda pro vlozPrikaz.
-     * @param prikaz parametr metody
+     * Vloží nový platný příkaz do seznamu příkazů.
+     * @param prikaz požadovaný vstup prikaz
      */
     public void vlozPrikaz(IPrikaz prikaz) {
         mapaSPrikazy.put(prikaz.getNazev(),prikaz);
     }
     
     /**
-     * Metoda pro vratPrikaz.
-     * @param retezec parametr metody
-     * @return hodnota z metody
+     * Vrátí odkaz na instanci příkazu podle zadaného názvu.
+     * @param retezec požadovaný vstup retezec
+     * @return logický výsledek volání
      */
     public IPrikaz vratPrikaz(String retezec) {
         if (mapaSPrikazy.containsKey(retezec)) {
@@ -38,9 +38,9 @@ public class SeznamPrikazu {
     }
 
     /**
-     * Metoda pro jePlatnyPrikaz.
-     * @param retezec parametr metody
-     * @return hodnota z metody
+     * Zjišťuje, zda je zadané slovo platným příkazem.
+     * @param retezec požadovaný vstup retezec
+     * @return logický výsledek volání
      */
     public boolean jePlatnyPrikaz(String retezec) {
         return mapaSPrikazy.containsKey(retezec);
@@ -48,7 +48,7 @@ public class SeznamPrikazu {
 
     /**
      * Metoda pro vratNazvyPrikazu.
-     * @return hodnota z metody
+     * @return logický výsledek volání
      */
     public String vratNazvyPrikazu() {
         String seznam = "";

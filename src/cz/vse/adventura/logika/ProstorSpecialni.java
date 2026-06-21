@@ -16,7 +16,7 @@ public class ProstorSpecialni extends Prostor {
 
     /**
      * Metoda pro isZamceno.
-     * @return hodnota z metody
+     * @return logický výsledek volání
      */
     public boolean isZamceno() {
         return zamceno;
@@ -24,7 +24,7 @@ public class ProstorSpecialni extends Prostor {
 
     /**
      * Metoda pro setZamceno.
-     * @param zamceno parametr metody
+     * @param zamceno požadovaný vstup zamceno
      */
     public void setZamceno(boolean zamceno) {
         this.zamceno = zamceno;

@@ -107,7 +107,7 @@ public class HerniPlan {
 
     /**
      * Metoda pro seberVec.
-     * @param nazevVeci parametr metody
+     * @param nazevVeci požadovaný vstup nazevVeci
      */
     public void seberVec(String nazevVeci) throws Exception
     {
@@ -127,7 +127,7 @@ public class HerniPlan {
 
     /**
      * Metoda pro polozVec.
-     * @param nazevVeci parametr metody
+     * @param nazevVeci požadovaný vstup nazevVeci
      */
     public void polozVec(String nazevVeci) throws Exception
     {
@@ -137,7 +137,7 @@ public class HerniPlan {
     
     /**
      * Metoda pro vypij.
-     * @param nazev parametr metody
+     * @param nazev hledaný název
      */
     public void vypij(String nazev) throws Exception {
         if (!batoh.jeVecVBatohu(nazev)) {
@@ -151,7 +151,7 @@ public class HerniPlan {
     
     /**
      * Metoda pro kupVec.
-     * @param nazev parametr metody
+     * @param nazev hledaný název
      */
     public void kupVec(String nazev) throws Exception {
         if (!aktualniProstor.jeVecVProstoru("automat") && !aktualniProstor.jeVecVProstoru("LOKNI_SI_automat") && !aktualniProstor.jeVecVProstoru("nápojový_automat")) {
@@ -170,8 +170,8 @@ public class HerniPlan {
     
     /**
      * Metoda pro prozkoumejVec.
-     * @param nazev parametr metody
-     * @return hodnota z metody
+     * @param nazev hledaný název
+     * @return logický výsledek volání
      */
     public String prozkoumejVec(String nazev) throws Exception {
         if (aktualniProstor.jeVecVProstoru(nazev)) {
@@ -187,16 +187,16 @@ public class HerniPlan {
     }
 
     /**
-     * Metoda pro getAktualniProstor.
-     * @return hodnota z metody
+     * Vrátí odkaz na aktuální prostor (místnost), ve kterém se hráč právě nachází.
+     * @return logický výsledek volání
      */
     public Prostor getAktualniProstor() {
         return aktualniProstor;
     }
     
     /**
-     * Metoda pro setAktualniProstor.
-     * @param prostor parametr metody
+     * Nastaví aktuální prostor (místnost), do kterého se hráč přesunul.
+     * @param prostor požadovaný vstup prostor
      */
     public void setAktualniProstor(Prostor prostor) {
        aktualniProstor = prostor;
@@ -204,7 +204,7 @@ public class HerniPlan {
 
     /**
      * Metoda pro getPopisObsahuBatohu.
-     * @return hodnota z metody
+     * @return logický výsledek volání
      */
     public String getPopisObsahuBatohu() {
         return batoh.getPopisObsahu();

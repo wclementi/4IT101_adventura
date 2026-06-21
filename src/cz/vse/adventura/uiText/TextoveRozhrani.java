@@ -42,7 +42,7 @@ public class TextoveRozhrani {
     }
 
     /**
-     * Metoda pro hraj.
+     * Spustí hlavní smyčku hry a textového rozhraní.
      */
     public void hraj() {
         String posledniOdpoved = hra.vratUvitani();
@@ -77,8 +77,8 @@ public class TextoveRozhrani {
     }
 
     /**
-     * Metoda pro hrajZeSouboru.
-     * @param nazevSouboru parametr metody
+     * Spustí hru v automatizovaném režimu, kde čte příkazy ze zadaného souboru a zapisuje výstup.
+     * @param nazevSouboru požadovaný vstup nazevSouboru
      */
     public void hrajZeSouboru(String nazevSouboru) {
         try (
