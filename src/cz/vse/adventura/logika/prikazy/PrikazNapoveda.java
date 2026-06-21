@@ -1,5 +1,10 @@
-package cz.vse.adventura.logika.prikazy;
+﻿package cz.vse.adventura.logika.prikazy;
 
+/**
+ * Příkaz pro zobrazení nápovědy a seznamu příkazů.
+ *
+ * @author Kajetan Franciszek Wielgosz
+ */
 public class PrikazNapoveda implements IPrikaz {
     
     private static final String NAZEV = "nápověda";

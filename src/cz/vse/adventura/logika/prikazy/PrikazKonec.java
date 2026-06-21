@@ -1,6 +1,11 @@
-package cz.vse.adventura.logika.prikazy;
+﻿package cz.vse.adventura.logika.prikazy;
 import cz.vse.adventura.logika.*;
 
+/**
+ * Příkaz pro okamžité ukončení hry.
+ *
+ * @author Kajetan Franciszek Wielgosz
+ */
 public class PrikazKonec implements IPrikaz {
 
     private static final String NAZEV = "konec";

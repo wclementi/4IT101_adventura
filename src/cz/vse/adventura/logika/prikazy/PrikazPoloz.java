@@ -1,6 +1,11 @@
-package cz.vse.adventura.logika.prikazy;
+﻿package cz.vse.adventura.logika.prikazy;
 import cz.vse.adventura.logika.*;
 
+/**
+ * Příkaz pro položení předmětu z batohu do aktuální místnosti.
+ *
+ * @author Kajetan Franciszek Wielgosz
+ */
 public class PrikazPoloz implements IPrikaz {
     private static final String NAZEV = "polož";
     private HerniPlan plan;

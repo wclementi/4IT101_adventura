@@ -1,6 +1,11 @@
-package cz.vse.adventura.logika.prikazy;
+﻿package cz.vse.adventura.logika.prikazy;
 import cz.vse.adventura.logika.*;
 
+/**
+ * Příkaz pro nákup položky v automatu.
+ *
+ * @author Kajetan Franciszek Wielgosz
+ */
 public class PrikazKup implements IPrikaz {
     private static final String NAZEV = "kup";
     private HerniPlan plan;

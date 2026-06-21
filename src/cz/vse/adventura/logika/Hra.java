@@ -1,7 +1,12 @@
-package cz.vse.adventura.logika;
+﻿package cz.vse.adventura.logika;
 
 import cz.vse.adventura.logika.prikazy.*;
 
+/**
+ * Hlavní třída logiky hry. Inicializuje hru, předává příkazy parseru a spravuje stav hry.
+ *
+ * @author Kajetan Franciszek Wielgosz
+ */
 public class Hra implements IHra {
     private SeznamPrikazu platnePrikazy;
     private HerniPlan herniPlan;
@@ -36,6 +41,10 @@ public class Hra implements IHra {
         platnePrikazy.vlozPrikaz(PrikazFactory.vytvorPrikaz("rozbij", herniPlan, null, this));
     }
 
+    /**
+     * Metoda pro vratUvitani.
+     * @return hodnota z metody
+     */
     public String vratUvitani() {
         return "Vítejte na VŠE!\n" +
                 "Jsi v učebně informatiky, právě skončila přednáška 4IT101 a máš strašnou žízeň. Tvým úkolem je najít něco co uhasí tvoji žízeň a dostavit se včas na další přednášku ekonomie. Hodně štěstí!\n"
@@ -45,14 +54,27 @@ public class Hra implements IHra {
                 herniPlan.getAktualniProstor().dlouhyPopis();
     }
 
+    /**
+     * Metoda pro vratEpilog.
+     * @return hodnota z metody
+     */
     public String vratEpilog() {
         return textEpilogu;
     }
 
+    /**
+     * Metoda pro konecHry.
+     * @return hodnota z metody
+     */
     public boolean konecHry() {
         return konecHry;
     }
 
+    /**
+     * Metoda pro zpracujPrikaz.
+     * @param radek parametr metody
+     * @return hodnota z metody
+     */
     public String zpracujPrikaz(String radek) {
         String[] slova = radek.split("[ \t]+");
         String slovoPrikazu = slova[0];
@@ -81,40 +103,77 @@ public class Hra implements IHra {
         return textKVypsani;
     }
 
+    /**
+     * Metoda pro setKonecHry.
+     * @param konecHry parametr metody
+     */
     public void setKonecHry(boolean konecHry) {
         this.konecHry = konecHry;
     }
 
+    /**
+     * Metoda pro setKonecHryS_Epilogem.
+     * @param stav parametr metody
+     * @param epilog parametr metody
+     */
     public void setKonecHryS_Epilogem(StavHry stav, String epilog) {
         this.stavHry = stav;
         this.konecHry = true;
         this.textEpilogu = epilog;
     }
 
+    /**
+     * Metoda pro setUspokojenaZizen.
+     * @param stav parametr metody
+     */
     public void setUspokojenaZizen(boolean stav) {
         this.uspokojenaZizen = stav;
     }
 
+    /**
+     * Metoda pro isUspokojenaZizen.
+     * @return hodnota z metody
+     */
     public boolean isUspokojenaZizen() {
         return uspokojenaZizen;
     }
 
+    /**
+     * Metoda pro setVypitoSavo.
+     * @param stav parametr metody
+     */
     public void setVypitoSavo(boolean stav) {
         this.vypitoSavo = stav;
     }
 
+    /**
+     * Metoda pro isVypitoSavo.
+     * @return hodnota z metody
+     */
     public boolean isVypitoSavo() {
         return vypitoSavo;
     }
 
+    /**
+     * Metoda pro setRozbityAutomat.
+     * @param stav parametr metody
+     */
     public void setRozbityAutomat(boolean stav) {
         this.rozbityAutomat = stav;
     }
 
+    /**
+     * Metoda pro isRozbityAutomat.
+     * @return hodnota z metody
+     */
     public boolean isRozbityAutomat() {
         return rozbityAutomat;
     }
 
+    /**
+     * Metoda pro getHerniPlan.
+     * @return hodnota z metody
+     */
     public HerniPlan getHerniPlan() {
         return herniPlan;
     }

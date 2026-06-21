@@ -1,9 +1,14 @@
-package cz.vse.adventura.logika.predmety;
+﻿package cz.vse.adventura.logika.predmety;
 
 import java.util.HashMap;
 import java.util.Map;
 
 // ukol 12. tyden: Singleton pro batoh
+/**
+ * Třída představující hráčův inventář s omezenou kapacitou.
+ *
+ * @author Kajetan Franciszek Wielgosz
+ */
 public class Batoh
 {
     private static Batoh instance;
@@ -15,6 +20,10 @@ public class Batoh
 
     private Batoh() {}
 
+    /**
+     * Metoda pro getInstance.
+     * @return hodnota z metody
+     */
     public static Batoh getInstance() {
         if (instance == null) {
             instance = new Batoh();
@@ -22,11 +31,21 @@ public class Batoh
         return instance;
     }
 
+    /**
+     * Metoda pro jeVecVBatohu.
+     * @param nazev parametr metody
+     * @return hodnota z metody
+     */
     public boolean jeVecVBatohu(String nazev)
     {
         return veci.containsKey(nazev);
     }
 
+    /**
+     * Metoda pro getVec.
+     * @param nazev parametr metody
+     * @return hodnota z metody
+     */
     public Vec getVec(String nazev) throws Exception
     {
         if(!jeVecVBatohu(nazev)){
@@ -46,6 +65,11 @@ public class Batoh
         return hmotnost;
     }
 
+    /**
+     * Metoda pro odeberVec.
+     * @param nazev parametr metody
+     * @return hodnota z metody
+     */
     public Vec odeberVec(String nazev) throws Exception
     {
         if(!jeVecVBatohu(nazev)){
@@ -55,6 +79,11 @@ public class Batoh
         }
     }
 
+    /**
+     * Metoda pro pridejVec.
+     * @param vec parametr metody
+     * @return hodnota z metody
+     */
     public Vec pridejVec(Vec vec) throws Exception
     {
         if(jeVecVBatohu(vec.getNazev()))
@@ -72,6 +101,10 @@ public class Batoh
         return veci.put(vec.getNazev(), vec);
     }
 
+    /**
+     * Metoda pro getPopisObsahu.
+     * @return hodnota z metody
+     */
     public String getPopisObsahu() {
         if (veci.isEmpty()) {
             return "Batoh je prázdný.";
@@ -83,15 +116,26 @@ public class Batoh
         return vracenyText;
     }
 
+    /**
+     * Metoda pro vymazBatoh.
+     */
     public void vymazBatoh() {
         veci.clear();
         telefonPouzit = false;
     }
 
+    /**
+     * Metoda pro isTelefonPouzit.
+     * @return hodnota z metody
+     */
     public boolean isTelefonPouzit() {
         return telefonPouzit;
     }
 
+    /**
+     * Metoda pro setTelefonPouzit.
+     * @param telefonPouzit parametr metody
+     */
     public void setTelefonPouzit(boolean telefonPouzit) {
         this.telefonPouzit = telefonPouzit;
     }

@@ -1,10 +1,15 @@
-package cz.vse.adventura.logika;
+﻿package cz.vse.adventura.logika;
 import cz.vse.adventura.logika.predmety.*;
 import cz.vse.adventura.logika.npc.*;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * Představuje jednu místnost (lokaci) ve hře. Může obsahovat východy, předměty a postavy.
+ *
+ * @author Kajetan Franciszek Wielgosz
+ */
 public class Prostor {
 
     private String nazev;
@@ -21,16 +26,31 @@ public class Prostor {
         postavy = new HashMap<>();
     }
 
+    /**
+     * Metoda pro jeVecVProstoru.
+     * @param nazev parametr metody
+     * @return hodnota z metody
+     */
     public boolean jeVecVProstoru(String nazev)
     {
         return veci.containsKey(nazev);
     }
 
+    /**
+     * Metoda pro getVec.
+     * @param nazev parametr metody
+     * @return hodnota z metody
+     */
     public Vec getVec(String nazev)
     {
         return veci.get(nazev);
     }
 
+    /**
+     * Metoda pro pridejVec.
+     * @param vec parametr metody
+     * @return hodnota z metody
+     */
     public Vec pridejVec(Vec vec)
     {
         if(jeVecVProstoru(vec.getNazev()))
@@ -41,19 +61,37 @@ public class Prostor {
         return veci.put(vec.getNazev(), vec);
     }
 
+    /**
+     * Metoda pro odeberVec.
+     * @param vec parametr metody
+     * @return hodnota z metody
+     */
     public Vec odeberVec(Vec vec)
     {
         return veci.remove(vec.getNazev());
     }
 
+    /**
+     * Metoda pro pridejPostavu.
+     * @param postava parametr metody
+     */
     public void pridejPostavu(NPCPouzeMluvici postava) {
         postavy.put(postava.getJmeno(), postava);
     }
 
+    /**
+     * Metoda pro getPostava.
+     * @param jmeno parametr metody
+     * @return hodnota z metody
+     */
     public NPCPouzeMluvici getPostava(String jmeno) {
         return postavy.get(jmeno);
     }
 
+    /**
+     * Metoda pro setVychod.
+     * @param vedlejsi parametr metody
+     */
     public void setVychod(Prostor vedlejsi) {
         vychody.add(vedlejsi);
     }
@@ -79,10 +117,18 @@ public class Prostor {
         return vysledek;
     }
 
+    /**
+     * Metoda pro getNazev.
+     * @return hodnota z metody
+     */
     public String getNazev() {
         return nazev;       
     }
 
+    /**
+     * Metoda pro dlouhyPopis.
+     * @return hodnota z metody
+     */
     public String dlouhyPopis() {
         return "Jsi v mistnosti/prostoru " + popis + ".\n"
                 + popisVychodu() + "\n"
@@ -115,6 +161,11 @@ public class Prostor {
         return vracenyText;
     }
 
+    /**
+     * Metoda pro vratSousedniProstor.
+     * @param nazevSouseda parametr metody
+     * @return hodnota z metody
+     */
     public Prostor vratSousedniProstor(String nazevSouseda) {
         List<Prostor>hledaneProstory = 
             vychody.stream()
@@ -128,6 +179,10 @@ public class Prostor {
         }
     }
 
+    /**
+     * Metoda pro getVychody.
+     * @return hodnota z metody
+     */
     public Collection<Prostor> getVychody() {
         return Collections.unmodifiableCollection(vychody);
     }

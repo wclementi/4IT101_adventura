@@ -1,6 +1,11 @@
-package cz.vse.adventura.logika.prikazy;
+﻿package cz.vse.adventura.logika.prikazy;
 import cz.vse.adventura.logika.*;
 
+/**
+ * Příkaz pro sebrání předmětu z místnosti do batohu.
+ *
+ * @author Kajetan Franciszek Wielgosz
+ */
 public class PrikazSeber implements IPrikaz {
     private static final String NAZEV = "seber";
     private HerniPlan plan;

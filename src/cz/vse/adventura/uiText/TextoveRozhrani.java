@@ -1,4 +1,4 @@
-package cz.vse.adventura.uiText;
+﻿package cz.vse.adventura.uiText;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -11,6 +11,11 @@ import java.util.Scanner;
 
 import cz.vse.adventura.logika.IHra;
 
+/**
+ * Třída obstarávající textové uživatelské rozhraní hry.
+ *
+ * @author Kajetan Franciszek Wielgosz
+ */
 public class TextoveRozhrani {
     private IHra hra;
     private Scanner scanner;
@@ -20,6 +25,9 @@ public class TextoveRozhrani {
         this.scanner = new Scanner(System.in);
     }
 
+    /**
+     * Metoda pro hraj.
+     */
     public void hraj() {
         System.out.println(hra.vratUvitani());
 
@@ -31,6 +39,10 @@ public class TextoveRozhrani {
         System.out.println(hra.vratEpilog());
     }
 
+    /**
+     * Metoda pro hrajZeSouboru.
+     * @param nazevSouboru parametr metody
+     */
     public void hrajZeSouboru(String nazevSouboru) {
         try (
             BufferedReader cteni = new BufferedReader(new FileReader(nazevSouboru));

@@ -1,7 +1,12 @@
-package cz.vse.adventura.logika.prikazy;
+﻿package cz.vse.adventura.logika.prikazy;
 import cz.vse.adventura.logika.*;
 import cz.vse.adventura.logika.predmety.*;
 
+/**
+ * Příkaz pro přesun do sousední místnosti.
+ *
+ * @author Kajetan Franciszek Wielgosz
+ */
 public class PrikazJdi implements IPrikaz {
     private static final String NAZEV = "jdi";
     private HerniPlan plan;

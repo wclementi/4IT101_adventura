@@ -1,6 +1,11 @@
-package cz.vse.adventura.logika.prikazy;
+﻿package cz.vse.adventura.logika.prikazy;
 import cz.vse.adventura.logika.*;
 
+/**
+ * Příkaz pro detailní prozkoumání místnosti nebo předmětu.
+ *
+ * @author Kajetan Franciszek Wielgosz
+ */
 public class PrikazProzkoumej implements IPrikaz {
     private static final String NAZEV = "prozkoumej";
     private HerniPlan plan;

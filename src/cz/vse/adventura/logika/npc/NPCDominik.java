@@ -1,8 +1,13 @@
-package cz.vse.adventura.logika.npc;
+﻿package cz.vse.adventura.logika.npc;
 
 import cz.vse.adventura.logika.predmety.Batoh;
 import cz.vse.adventura.logika.predmety.Vec;
 
+/**
+ * Třída představující specifické NPC - Dominika, který vyžaduje předmět.
+ *
+ * @author Kajetan Franciszek Wielgosz
+ */
 public class NPCDominik extends NPCPouzeMluvici {
     private boolean dalLahev = false;
 

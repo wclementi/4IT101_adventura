@@ -1,6 +1,11 @@
-package cz.vse.adventura.logika.prikazy;
+﻿package cz.vse.adventura.logika.prikazy;
 import cz.vse.adventura.logika.*;
 
+/**
+ * Příkaz pro sednutí na židli nebo na zem.
+ *
+ * @author Kajetan Franciszek Wielgosz
+ */
 public class PrikazSedni implements IPrikaz {
     private static final String NAZEV = "sedni";
     private HerniPlan plan;
