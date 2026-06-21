@@ -37,6 +37,7 @@ public class PrikazNapln implements IPrikaz {
             try {
                 batoh.odeberVec("prázdná_lahev");
                 batoh.pridejVec(new Vec("plná_lahev", true, 2));
+                batoh.setTelefonPouzit(true);
                 return "Přiložil jsi telefon k automatu a naplnil jsi prázdnou lahev vodou.";
             } catch (Exception e) {
                 return "Máš moc plný batoh, vodu nelze napustit.";
@@ -45,6 +46,7 @@ public class PrikazNapln implements IPrikaz {
             try {
                 batoh.odeberVec("prázdná_lahev_od_sava");
                 batoh.pridejVec(new Vec("plná_lahev_od_sava", true, 2));
+                batoh.setTelefonPouzit(true);
                 return "Přiložil jsi telefon k automatu a naplnil jsi prázdnou lahev od sava vodou. (Smrdí to divně...)";
             } catch (Exception e) {
                 return "Máš moc plný batoh, vodu nelze napustit.";

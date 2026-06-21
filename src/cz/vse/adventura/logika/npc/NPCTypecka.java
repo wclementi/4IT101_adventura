@@ -21,7 +21,7 @@ public class NPCTypecka extends NPCPouzeMluvici {
 
         if (pujcilaMobil) {
             if (batoh.jeVecVBatohu("telefon_s_aplikaci_lokni_si")) {
-                if (!batoh.jeVecVBatohu("plná_lahev") && !batoh.jeVecVBatohu("plná_lahev_od_sava")) {
+                if (!batoh.isTelefonPouzit()) {
                     return "(typecka): \"Ještě sis nenatočil vodu? Tak šup, já tu počkám.\"";
                 }
                 try {

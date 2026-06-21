@@ -15,6 +15,7 @@ public class Batoh
     private int maximalniKapacita = 5;
     private int maximalniNosnost = 6;
     private Map<String, Vec> veci = new HashMap<>();
+    private boolean telefonPouzit = false;
 
     private Batoh() {}
 
@@ -88,5 +89,14 @@ public class Batoh
 
     public void vymazBatoh() {
         veci.clear();
+        telefonPouzit = false;
+    }
+
+    public boolean isTelefonPouzit() {
+        return telefonPouzit;
+    }
+
+    public void setTelefonPouzit(boolean telefonPouzit) {
+        this.telefonPouzit = telefonPouzit;
     }
 }

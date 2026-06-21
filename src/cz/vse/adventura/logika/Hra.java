@@ -8,7 +8,7 @@ public class Hra implements IHra {
     private SeznamPrikazu platnePrikazy;
     private HerniPlan herniPlan;
     private boolean konecHry = false;
-    private int zbyvajiciTahy = 17;
+    private int zbyvajiciTahy = 35;
     private boolean uspokojenaZizen = false;
     private boolean vypitoSavo = false;
     private boolean rozbityAutomat = false;
@@ -67,7 +67,7 @@ public class Hra implements IHra {
             IPrikaz prikaz = platnePrikazy.vratPrikaz(slovoPrikazu);
             textKVypsani = prikaz.provedPrikaz(parametry);
 
-            if (!konecHry && !slovoPrikazu.equals("konec")) {
+            if (!konecHry && !slovoPrikazu.equals("konec") && !slovoPrikazu.equals("nápověda") && !slovoPrikazu.equals("vypiš") && !slovoPrikazu.equals("sedni")) {
                 zbyvajiciTahy--;
                 if (zbyvajiciTahy <= 0) {
                     setKonecHryS_Epilogem(StavHry.BAD_ENDING,

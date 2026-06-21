@@ -71,8 +71,8 @@ public class HraTest {
 
     @Test
     public void testBadEndingLimitTahu() {
-        for (int i = 0; i < 17; i++) {
-            hra.zpracujPrikaz("nápověda");
+        for (int i = 0; i < 35; i++) {
+            hra.zpracujPrikaz("jdi blbost");
         }
         
         assertTrue(hra.konecHry());
