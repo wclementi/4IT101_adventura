@@ -103,11 +103,11 @@ public class HerniPlan {
                 "(ty): \"Ahoj, na jakou přednášku tady čekáš?\"\n(studentka): \"Čekám na přednášku ekonomie.\"\n(ty): \"Super, díky moc.\"");
         likesovaAula.pridejPostavu(studentka);
 
-        NPCDominik dominik = new NPCDominik("dominik");
+        NPCDominik dominik = new NPCDominik("Dominik");
         chodbaPatro2.pridejPostavu(dominik);
 
-        NPCTypecka typecka = new NPCTypecka("týpečka");
-        chodbaPrizemi.pridejPostavu(typecka);
+        NPCSpoluzacka spoluzacka = new NPCSpoluzacka("Spolužačka");
+        chodbaPrizemi.pridejPostavu(spoluzacka);
 
         // nastavení počátečního prostoru
         aktualniProstor = ucebnaProgramovani;
