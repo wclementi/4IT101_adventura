@@ -9,13 +9,11 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class SeznamPrikazuTest
-{
+public class SeznamPrikazuTest {
     private Hra hra;
     private PrikazKonec prKonec;
     private PrikazJdi prJdi;
-    private PrikazNapoveda prNapoveda;
-    
+
     @BeforeEach
     public void setUp() {
         hra = new Hra();
@@ -32,7 +30,7 @@ public class SeznamPrikazuTest
         assertEquals(prJdi, seznPrikazu.vratPrikaz("jdi"));
         assertEquals(null, seznPrikazu.vratPrikaz("nápověda"));
     }
-    
+
     @Test
     public void testJePlatnyPrikaz() {
         SeznamPrikazu seznPrikazu = new SeznamPrikazu();
@@ -49,7 +47,7 @@ public class SeznamPrikazuTest
         assertEquals(false, seznPrikazu.jePlatnyPrikaz("promluv s"));
         assertEquals(false, seznPrikazu.jePlatnyPrikaz("naplň"));
     }
-    
+
     @Test
     public void testNazvyPrikazu() {
         SeznamPrikazu seznPrikazu = new SeznamPrikazu();

@@ -3,13 +3,12 @@
 **Autor:** Kajetan Franciszek Wielgosz
 
 ## O hře
-Přežij na VŠE je textová adventura vytvořená jako semestrální projekt. Ocitáte se na Vysoké škole ekonomické (VŠE) hned po náročné přednášce 4IT101. Vaším cílem je uspokojit nesnesitelnou žízeň a včas dorazit na další, tentokrát povinnou přednášku, která rozhodne o vaší akademické budoucnosti.
+Přežij na VŠE je textová adventura vytvořená jako semestrální projekt. Ocitáte se na Vysoké škole ekonomické hned po náročné přednášce 4IT101. Vaším cílem je uspokojit nesnesitelnou žízeň a včas dorazit na další, tentokrát povinnou přednášku, která rozhodne o vaší akademické budoucnosti. Stihnete to včas?.
 
 ## Cíl hry
 1. Prozkoumat areál VŠE.
-2. Získat peníze (mince).
-3. Koupit si nápoj z automatu a vypít ho (uhasit žízeň).
-4. Najít správnou aulu (Likešova aula) a včas se posadit na přednášku.
+2. Uhasit žízeň (existuje několik možností).
+3. Dostavit se včas na další přednášku a zjištit kde se koná.
 
 Dejte si pozor na limit tahů! Pokud se budete po škole bezcílně potulovat příliš dlouho, zmeškáte přednášku a hra končí neúspěchem.
 
@@ -30,15 +29,15 @@ Zde je seznam platných příkazů:
 - `jdi <prostor>` – Přesune vás do sousedního prostoru (např. `jdi schodiste`).
 - `seber <předmět>` – Zvedne předmět a uloží ho do vašeho batohu.
 - `polož <předmět>` – Vyhodí předmět z batohu do aktuální místnosti.
-- `vypiš` – Vypíše aktuální obsah vašeho batohu.
+- `vypiš <prostor/batoh>` – Vypíše buď aktuální obsah vašeho batohu nebo prostoru.
 - `prozkoumej <prostor/předmět>` – Podá detailní informace o věci nebo místě.
 - `kup <předmět>` – Pokud stojíte u automatu, koupí požadovaný předmět.
 - `naplň <lahev>` – U speciálních automatů (např. LOKNI SI) naplní prázdnou lahev vodou.
 - `pij <nápoj>` – Vypije nápoj a zruší vaši žízeň.
 - `promluv <postava>` – Zahájí rozhovor s NPC postavou v místnosti.
-- `rozbij <předmět>` – Agresivní řešení problémů s automatem (použít na vlastní nebezpečí!).
-- `sedni` – Sedne si na místo. Pokud jste ve správné aule a máte zahnánu žízeň, vyhrajete.
-- `nápověda` – Zobrazí tento seznam příkazů přímo ve hře.
+- `rozbij <předmět>` – zjisti ve hře co se stane (vyžaduje předmět v batohu).
+- `sedni` – Sedne si na volné místo, pokud se nějaké nachází v prostoru. Nutné pro ukončení hry.
+- `nápověda` – Zobrazí seznam příkazů přímo ve hře.
 - `log` – Zobrazí kompletní historii vašich dosavadních kroků (příkazy a odpovědi).
 - `konec` – Okamžitě hru ukončí.
 

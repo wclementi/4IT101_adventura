@@ -63,6 +63,6 @@ public class PrikazSedni implements IPrikaz {
 
     @Override
     public String getPouziti() {
-        return "sedni <volná_sedacka/židle>";
+        return "sedni ";
     }
 }
