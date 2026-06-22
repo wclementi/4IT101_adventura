@@ -51,4 +51,9 @@ public class PrikazJdi implements IPrikaz {
     public String getNazev() {
         return NAZEV;
     }
+    
+    @Override
+    public String getPouziti() {
+        return "jdi <název prostoru>";
+    }
 }

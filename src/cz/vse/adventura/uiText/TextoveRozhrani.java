@@ -74,6 +74,8 @@ public class TextoveRozhrani {
 
         vymazKonzoli();
         System.out.println(hra.vratEpilog());
+        System.out.println("\n[Stiskněte ENTER pro ukončení hry...]");
+        scanner.nextLine();
     }
 
     /**

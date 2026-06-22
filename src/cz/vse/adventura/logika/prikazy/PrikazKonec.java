@@ -31,4 +31,9 @@ public class PrikazKonec implements IPrikaz {
     public String getNazev() {
         return NAZEV;
     }
+    
+    @Override
+    public String getPouziti() {
+        return "konec";
+    }
 }
