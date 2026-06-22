@@ -82,7 +82,10 @@ public class Hra implements IHra {
      * @return odpověď hry (výsledek vykonání příkazu)
      */
     public String zpracujPrikaz(String radek) {
-        String[] slova = radek.split("[ \t]+");
+        if (radek == null || radek.trim().isEmpty()) {
+            return "Zadej prosím nějaký příkaz.";
+        }
+        String[] slova = radek.trim().split("[ \t]+");
         String slovoPrikazu = slova[0];
         String[] parametry = new String[slova.length - 1];
         for (int i = 0; i < parametry.length; i++) {
