@@ -69,44 +69,44 @@ public class HerniPlan {
         // Přidání věcí do prostorů
         chodbaPatro1.pridejVec(new Vec("učebnice_ekonomie", true, 3));
         uklidovaMistnost.pridejVec(new Vec("páčidlo", true, 5));
-        uklidovaMistnost.pridejVec(new Vec("prázdná_lahev_od_sava", true, 1));
+        uklidovaMistnost.pridejVec(new Vec("prázdná_lahev_od_Sava", true, 1));
         chodbaPrizemi.pridejVec(new Vec("mince", true, 1));
         chodbaNovaBudova.pridejVec(new Vec("LOKNI_SI_automat", false, 100));
         chodbaVnoveBudove.pridejVec(new Vec("nápojový_automat", false, 100));
-        vencovskehoAula.pridejVec(new Vec("volná_sedacka", false, 50));
+        vencovskehoAula.pridejVec(new Vec("volná_sedačka", false, 50));
         vencovskehoAula.pridejVec(new Vec("mince", true, 1));
-        likesovaAula.pridejVec(new Vec("volná_sedacka", false, 50));
+        likesovaAula.pridejVec(new Vec("volná_sedačka", false, 50));
         likesovaAula.pridejVec(new Vec("mince", true, 1));
 
         // Vytvoření a přidání NPC postav do prostorů
-        NPCPouzeMluvici ucitel = new NPCPouzeMluvici("ucitel",
-                "(ucitel): Po sbaleni svých věcí zastavil studenty aby jim něco připomenul. \"Pamatujte si odevzdaní semestrální práce je vypsáno v odevzdávarně na 25.6. ale jestli chcete absolvovat obajobu musíte jí odevzdat před ní.\"\n(ty): \"To bych asi mohl udělat doma, teď na to ale ani nemůžu myslet kvůli té žízni\", pomyslel sis.");
+        NPCPouzeMluvici ucitel = new NPCPouzeMluvici("učitel",
+                "(učitel): Po sbalení svých věcí zastavil studenty, aby jim něco připomněl. \"Pamatujte si, odevzdání semestrální práce je vypsáno v odevzdávárně na 25. 6., ale jestli chcete absolvovat obhajobu, musíte ji odevzdat před ní.\"\n(ty): \"To bych asi mohl udělat doma, teď na to ale ani nemůžu myslet kvůli té žízni\", pomyslel sis.");
         ucebnaProgramovani.pridejPostavu(ucitel);
 
-        NPCPouzeMluvici typecek = new NPCPouzeMluvici("typecek",
-                "(ty): \"Ahoj, nevěděl bys kde můžu sehnat něco k pití?\"\n(typecek): ... \"S tim ti asi nepomuzu\"\n(ty): \"Jakto??\"\n(typecek): \"Tady ani nestuduju. . .\"\n(ty): \"Ouu, tak to se neda nic\"");
+        NPCPouzeMluvici typecek = new NPCPouzeMluvici("týpeček",
+                "(ty): \"Ahoj, nevěděl bys, kde můžu sehnat něco k pití?\"\n(týpeček): ... \"S tím ti asi nepomůžu.\"\n(ty): \"Jak to??\"\n(týpeček): \"Tady ani nestuduji...\"\n(ty): \"Ouu, tak to se nedá nic.\"");
         chodbaPatro1.pridejPostavu(typecek);
 
-        NPCPouzeMluvici ucitelka = new NPCPouzeMluvici("ucitelka_ekonomie",
-                "*vsimnul sis známé tváře, přednášející ekonomie, která zrovna čekala poblíž schodů telefonem v ruce*\n(ty): \"Zdravím, mohl bych se vás prosím zeptat na to v jaké místnoti dnes přednášíte ekonomii?\"\n(ucitelka): \"To byste ale měl vědět vy, mladý Pane...\"\n(ty): \"Ja vím ale mám dnes těžký den a nějak mi to vypadlo, řekla byste mi to prosím?\"\n(ucitelka): \"Přednáška bude v Likešově aule ... a né abych vás viděla přijít pozdě.\"\n(ty): \"Určite, příjdu včas a děkuju moc.\"");
+        NPCPouzeMluvici ucitelka = new NPCPouzeMluvici("učitelka_ekonomie",
+                "*Všiml sis známé tváře, přednášející ekonomii, která zrovna čekala poblíž schodů s telefonem v ruce*\n(ty): \"Zdravím, mohl bych se vás prosím zeptat na to, v jaké místnosti dnes přednášíte ekonomii?\"\n(učitelka): \"To byste ale měl vědět vy, mladý pane...\"\n(ty): \"Já vím, ale mám dnes těžký den a nějak mi to vypadlo, řekla byste mi to prosím?\"\n(učitelka): \"Přednáška bude v Likešově aule... a ne abych vás viděla přijít pozdě.\"\n(ty): \"Určitě, přijdu včas a děkuji moc.\"");
         schodiste.pridejPostavu(ucitelka);
 
-        NPCPouzeMluvici vratny = new NPCPouzeMluvici("vratny",
-                "(ty): \"Omlouvám se, mám strašnou žízeň a potřebuju se něčeho napít. Poradil byste mi prosim?\"\n(vratny): \"Urcite, tady nedaleko je automat kde si muzete natocit vodu do vlastni lahve s aplikaci v telefonu, mel by byt na ceste do nove budovy nebo na chodbe v nove budove je automat, tam ale budete muset zaplatit mincemi.\"\n(ty): \"Dekuju moc, mejte se.\"");
+        NPCPouzeMluvici vratny = new NPCPouzeMluvici("vrátný",
+                "(ty): \"Omlouvám se, mám strašnou žízeň a potřebuji se něčeho napít. Poradil byste mi prosím?\"\n(vrátný): \"Určitě, tady nedaleko je automat, kde si můžete natočit vodu do vlastní lahve s aplikací v telefonu. Měl by být na cestě do nové budovy. Nebo na chodbě v nové budově je automat, tam ale budete muset zaplatit mincemi.\"\n(ty): \"Děkuji moc, mějte se.\"");
         recepce.pridejPostavu(vratny);
 
         NPCPouzeMluvici student = new NPCPouzeMluvici("student",
-                "(ty): \"Ahoj, na jakou prednasku tady cekas?\"\n(student): \"Cekam na prednasku databazi.\"\n(ty): \"Diky moc.\"");
+                "(ty): \"Ahoj, na jakou přednášku tady čekáš?\"\n(student): \"Čekám na přednášku databází.\"\n(ty): \"Díky moc.\"");
         vencovskehoAula.pridejPostavu(student);
 
         NPCPouzeMluvici studentka = new NPCPouzeMluvici("studentka",
-                "(ty): \"Ahoj, na jakou prednasku tady cekas?\"\n(student): \"Cekam na prednasku ekonomie.\"\n(ty): \"Super, diky moc.\"");
+                "(ty): \"Ahoj, na jakou přednášku tady čekáš?\"\n(studentka): \"Čekám na přednášku ekonomie.\"\n(ty): \"Super, díky moc.\"");
         likesovaAula.pridejPostavu(studentka);
 
         NPCDominik dominik = new NPCDominik("dominik");
         chodbaPatro2.pridejPostavu(dominik);
 
-        NPCTypecka typecka = new NPCTypecka("typecka");
+        NPCTypecka typecka = new NPCTypecka("týpečka");
         chodbaPrizemi.pridejPostavu(typecka);
 
         // nastavení počátečního prostoru
@@ -128,7 +128,7 @@ public class HerniPlan {
             batoh.pridejVec(vec);
             aktualniProstor.odeberVec(vec);
         } else {
-            throw new Exception("Nic takoveho tu neni");
+            throw new Exception("Nic takového tu není.");
         }
     }
 

@@ -53,7 +53,7 @@ public class Hra implements IHra {
      */
     public String vratUvitani() {
         return "Vítejte na VŠE!\n" +
-                "Jsi v učebně informatiky, právě skončila přednáška 4IT101 a máš strašnou žízeň. Tvým úkolem je najít něco co uhasí tvoji žízeň a dostavit se včas na další přednášku ekonomie. Hodně štěstí!\n"
+                "Jsi v učebně informatiky, právě skončila přednáška 4IT101 a máš strašnou žízeň. Tvým úkolem je najít něco, co uhasí tvoji žízeň, a dostavit se včas na další přednášku ekonomie. Hodně štěstí!\n"
                 +
                 "Napište 'nápověda', pokud si nevíte rady, jak hrát dál.\n" +
                 "\n" +
@@ -97,14 +97,14 @@ public class Hra implements IHra {
                 zbyvajiciTahy--;
                 if (zbyvajiciTahy <= 0) {
                     setKonecHryS_Epilogem(StavHry.BAD_ENDING,
-                            "Kouknul jsi na hodinky a uvědomil sis, že jdeš pozdě. Navíc přednáška, na které jsi měl být byla povinná a rozhodovala o tvé akademické budoucnosti. S poraženým výrazem jsi následně opustil VŠE a zaměřil k nejbližšímu mekáči hledat práci.");
+                            "Podíval ses na hodinky a uvědomil sis, že jdeš pozdě. Navíc přednáška, na které jsi měl být, byla povinná a rozhodovala o tvé akademické budoucnosti. S poraženým výrazem jsi následně opustil VŠE a zamířil k nejbližšímu mekáči hledat práci.");
                     textKVypsani += "\n\n" + vratEpilog();
                 } else {
                     textKVypsani += "\n(Zbývající tahy: " + zbyvajiciTahy + ")";
                 }
             }
         } else {
-            textKVypsani = "Nevím co tím myslíš? Tento příkaz neznám. ";
+            textKVypsani = "Nevím, co tím myslíš. Tento příkaz neznám.";
         }
         
         historie.add("> " + radek);

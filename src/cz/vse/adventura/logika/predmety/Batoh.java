@@ -54,7 +54,7 @@ public class Batoh
                 .findFirst()
                 .orElse(null);
         if(found == null){
-            throw new Exception("V batohu se tato vec nenachazi.");
+            throw new Exception("V batohu se tato věc nenachází.");
         }else{
             return found;
         }
@@ -82,7 +82,7 @@ public class Batoh
                 .findFirst()
                 .orElse(null);
         if(found == null){
-            throw new Exception("Tato vec neni v batohu");
+            throw new Exception("Tato věc není v batohu.");
         }else {
             return veci.remove(found.getNazev());
         }
@@ -97,15 +97,15 @@ public class Batoh
     {
         if(jeVecVBatohu(vec.getNazev()))
         {
-            throw new Exception("Tato vec jiz v batohu je");
+            throw new Exception("Tato věc již v batohu je.");
         }
         else if(maximalniKapacita < veci.size() + 1)
         {
-            throw new Exception("Max kapacita nesmi byt prekrocena");
+            throw new Exception("Maximální kapacita nesmí být překročena.");
         }
         if(maximalniNosnost < getHmotnost() + vec.getHmotnost())
         {
-            throw new Exception("Nosnost nesmi byt prekrocena");
+            throw new Exception("Nosnost nesmí být překročena.");
         }
         return veci.put(vec.getNazev(), vec);
     }

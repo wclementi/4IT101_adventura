@@ -146,7 +146,7 @@ public class Prostor {
      * @return logický výsledek volání
      */
     public String dlouhyPopis() {
-        return "Jsi v mistnosti/prostoru " + popis + ".\n"
+        return "Jsi v místnosti/prostoru " + popis + ".\n"
                 + popisVychodu() + "\n"
                 + popisVeci() + "\n"
                 + popisPostav();
