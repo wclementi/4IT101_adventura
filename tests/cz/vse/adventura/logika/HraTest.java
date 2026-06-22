@@ -42,15 +42,15 @@ public class HraTest {
         hra.zpracujPrikaz("seber učebnice_ekonomie");
         hra.zpracujPrikaz("jdi schodiste");
         hra.zpracujPrikaz("jdi chodba_2_patro");
-        hra.zpracujPrikaz("promluv dominik"); // předá lahev za učebnici
+        hra.zpracujPrikaz("promluv Dominik"); // předá lahev za učebnici
         hra.zpracujPrikaz("jdi schodiste");
         hra.zpracujPrikaz("jdi chodba_prizemi");
-        hra.zpracujPrikaz("promluv typecka"); // půjčí telefon za to, že máme lahev
+        hra.zpracujPrikaz("promluv spolužačka"); // půjčí telefon za to, že máme lahev
         hra.zpracujPrikaz("jdi chodba_do_nove_budovy");
         hra.zpracujPrikaz("naplň prázdná_lahev");
         hra.zpracujPrikaz("pij plná_lahev");
         hra.zpracujPrikaz("jdi chodba_prizemi");
-        hra.zpracujPrikaz("promluv typecka"); // vrácení telefonu
+        hra.zpracujPrikaz("promluv spolužačka"); // vrácení telefonu
         hra.zpracujPrikaz("jdi chodba_do_nove_budovy");
         hra.zpracujPrikaz("jdi chodba_v_nove_budove");
         hra.zpracujPrikaz("jdi likesova_aula");

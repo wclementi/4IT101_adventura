@@ -24,7 +24,7 @@ Hru je možné spustit dvěma způsoby:
 Projekt využívá klasické principy objektově orientovaného programování:
 - **Návrhový vzor Command (Příkaz):** Každý příkaz (např. `jdi`, `seber`, `promluv`) má vlastní třídu a logiku.
 - **Batoh (Singleton):** Inventář hráče s omezenou kapacitou a nosností.
-- **NPC postavy:** Ve hře vystupují postavy (Dominik, Týpečka, atd.), se kterými lze mluvit (`promluv`) a provádět s nimi výměnné obchody (výměna učebnice za lahev atd.).
+- **NPC postavy:** Ve hře vystupují postavy (Dominik, Spolužačka, atd.), se kterými lze mluvit (`promluv`) a provádět s nimi výměnné obchody (výměna učebnice za lahev atd.).
 - **Omezené tahy:** Hráč má k dispozici pouze omezené množství tahů, než zmešká přednášku a prohraje.
 - **Historie (Log):** Hra si pamatuje celou historii příkazů a dialogů, kterou lze kdykoliv vypsat příkazem `log`.
 

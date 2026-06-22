@@ -65,8 +65,8 @@ Předměty ve hře mohou být buď přenositelné (lze je vložit do batohu), ne
 | **vrátný** | recepce | Poradí, kde se nacházejí nápojové automaty. |
 | **student** | vencovskeho_aula | Čeká na přednášku z databází. |
 | **studentka** | likesova_aula | Čeká na přednášku z ekonomie. |
-| **dominik** | chodba_2_patro | Vymění učebnici ekonomie za prázdnou lahev. |
-| **typecka** | chodba_prizemi | Půjčí telefon s aplikací LOKNI SI, pokud má hráč lahev na vodu. Po naplnění chce telefon zpět. |
+| **Dominik** | chodba_2_patro | Vymění učebnici ekonomie za prázdnou lahev. |
+| **Spolužačka** | chodba_prizemi | Půjčí telefon s aplikací LOKNI SI, pokud má hráč lahev na vodu. Po naplnění chce telefon zpět. |
 
 ---
 
