@@ -17,10 +17,8 @@ Hru spustíte z příkazového řádku (CMD, PowerShell) pomocí připraveného 
 Pro bezproblémové zobrazení české diakritiky doporučujeme použít UTF-8 kódování.
 
 ```cmd
-chcp 65001
 java -jar adventura.jar
 ```
-*(Pokud je k projektu přibalen soubor `spust.bat`, můžete využít přímo ten).*
 
 ## Herní příkazy
 Hra se ovládá zadáváním textových příkazů. Po spuštění na vás vždy čeká výzva `> `, kam zadáváte svůj příkaz. 
@@ -40,10 +38,6 @@ Zde je seznam platných příkazů:
 - `nápověda` – Zobrazí seznam příkazů přímo ve hře.
 - `log` – Zobrazí kompletní historii vašich dosavadních kroků (příkazy a odpovědi).
 - `konec` – Okamžitě hru ukončí.
-
-## Automatické hraní ze souboru
-Hra podporuje i zadávání příkazů ze souboru, což je ideální pro testování. Můžete využít přiložený soubor `prikazy.txt`.
-K jeho využití stačí v kódu (třída `Start`) zavolat metodu `ui.hrajZeSouboru("prikazy.txt");` místo klasického `ui.hraj();`. Výstup celé hry se následně i s příkazy vygeneruje do souboru `vystup.txt`.
 
 ---
 Hodně štěstí při studiu na VŠE a pozor na dehydrataci!
