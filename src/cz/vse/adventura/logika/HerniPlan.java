@@ -114,9 +114,10 @@ public class HerniPlan {
     }
 
     /**
-     * Metoda pro seberVec.
+     * Odebere věc z aktuálního prostoru a vloží ji do batohu, pokud je přenositelná a v batohu je místo.
      * 
-     * @param nazevVeci požadovaný vstup nazevVeci
+     * @param nazevVeci název předmětu, který chce hráč sebrat
+     * @throws Exception pokud věc v místnosti není, nebo ji nelze přenášet
      */
     public void seberVec(String nazevVeci) throws Exception {
         Vec vec = aktualniProstor.getVec(nazevVeci);
@@ -133,9 +134,10 @@ public class HerniPlan {
     }
 
     /**
-     * Metoda pro polozVec.
+     * Vyndá věc z batohu a položí ji do aktuálního prostoru.
      * 
-     * @param nazevVeci požadovaný vstup nazevVeci
+     * @param nazevVeci název předmětu, který chce hráč položit
+     * @throws Exception pokud předmět v batohu není
      */
     public void polozVec(String nazevVeci) throws Exception {
         Vec vec = batoh.odeberVec(nazevVeci);
@@ -143,9 +145,10 @@ public class HerniPlan {
     }
 
     /**
-     * Metoda pro vypij.
+     * Vypije určený nápoj z batohu za účelem zahnání žízně.
      * 
-     * @param nazev hledaný název
+     * @param nazev název nápoje k vypití
+     * @throws Exception pokud nápoj není v batohu, nebo se daná věc nedá pít
      */
     public void vypij(String nazev) throws Exception {
         if (!batoh.jeVecVBatohu(nazev)) {
@@ -160,9 +163,10 @@ public class HerniPlan {
     }
 
     /**
-     * Metoda pro kupVec.
+     * Zakoupí nápoj z automatu v aktuálním prostoru za minci z batohu.
      * 
-     * @param nazev hledaný název
+     * @param nazev název kupovaného nápoje
+     * @throws Exception pokud v místnosti není automat, hráč nemá minci, nebo se pokouší koupit něco jiného než nápoj
      */
     public void kupVec(String nazev) throws Exception {
         if (!aktualniProstor.jeVecVProstoru("automat") && !aktualniProstor.jeVecVProstoru("LOKNI_SI_automat")
@@ -181,10 +185,11 @@ public class HerniPlan {
     }
 
     /**
-     * Metoda pro prozkoumejVec.
+     * Prozkoumá zadanou věc v aktuální místnosti nebo v batohu a vrátí její popis.
      * 
-     * @param nazev hledaný název
-     * @return logický výsledek volání
+     * @param nazev název předmětu k prozkoumání
+     * @return popis prozkoumaného předmětu
+     * @throws Exception pokud se věc v prostoru ani v batohu nenachází
      */
     public String prozkoumejVec(String nazev) throws Exception {
         if (aktualniProstor.jeVecVProstoru(nazev)) {
@@ -202,7 +207,7 @@ public class HerniPlan {
     /**
      * Vrátí odkaz na aktuální prostor (místnost), ve kterém se hráč právě nachází.
      * 
-     * @return logický výsledek volání
+     * @return aktuální prostor
      */
     public Prostor getAktualniProstor() {
         return aktualniProstor;
@@ -211,16 +216,16 @@ public class HerniPlan {
     /**
      * Nastaví aktuální prostor (místnost), do kterého se hráč přesunul.
      * 
-     * @param prostor požadovaný vstup prostor
+     * @param prostor nový aktuální prostor
      */
     public void setAktualniProstor(Prostor prostor) {
         aktualniProstor = prostor;
     }
 
     /**
-     * Metoda pro getPopisObsahuBatohu.
+     * Vrátí textový popis obsahu batohu (seznam věcí v batohu).
      * 
-     * @return logický výsledek volání
+     * @return popis obsahu batohu
      */
     public String getPopisObsahuBatohu() {
         return batoh.getPopisObsahu();

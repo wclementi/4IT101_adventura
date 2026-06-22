@@ -17,7 +17,7 @@ public class SeznamPrikazu {
     
     /**
      * Vloží nový platný příkaz do seznamu příkazů.
-     * @param prikaz požadovaný vstup prikaz
+     * @param prikaz instance příkazu, který chceme přidat
      */
     public void vlozPrikaz(IPrikaz prikaz) {
         mapaSPrikazy.put(prikaz.getNazev(),prikaz);
@@ -25,8 +25,8 @@ public class SeznamPrikazu {
     
     /**
      * Vrátí odkaz na instanci příkazu podle zadaného názvu.
-     * @param retezec požadovaný vstup retezec
-     * @return logický výsledek volání
+     * @param retezec název příkazu (s diakritikou i bez ní)
+     * @return instance příkazu, nebo null, pokud příkaz neexistuje
      */
     public IPrikaz vratPrikaz(String retezec) {
         return mapaSPrikazy.values().stream()
@@ -37,16 +37,16 @@ public class SeznamPrikazu {
 
     /**
      * Zjišťuje, zda je zadané slovo platným příkazem.
-     * @param retezec požadovaný vstup retezec
-     * @return logický výsledek volání
+     * @param retezec testované slovo
+     * @return true, pokud je příkaz platný, jinak false
      */
     public boolean jePlatnyPrikaz(String retezec) {
         return vratPrikaz(retezec) != null;
     }
 
     /**
-     * Metoda pro vratNazvyPrikazu.
-     * @return logický výsledek volání
+     * Vrátí seznam názvů všech platných příkazů oddělených mezerou.
+     * @return řetězec s názvy příkazů
      */
     public String vratNazvyPrikazu() {
         String seznam = "";

@@ -29,9 +29,9 @@ public class Prostor {
     }
 
     /**
-     * Zjišťuje, zda se v prostoru nachází předmět daného jména.
-     * @param nazev hledaný název
-     * @return logický výsledek volání
+     * Zjišťuje, zda se v prostoru nachází předmět daného názvu.
+     * @param nazev hledaný název předmětu
+     * @return true, pokud se předmět v prostoru nachází, jinak false
      */
     public boolean jeVecVProstoru(String nazev)
     {
@@ -39,9 +39,9 @@ public class Prostor {
     }
 
     /**
-     * Vrátí odkaz na předmět zadaného jména, který se nachází v prostoru (nebo batohu).
-     * @param nazev hledaný název
-     * @return logický výsledek volání
+     * Vrátí odkaz na předmět zadaného názvu, který se nachází v tomto prostoru.
+     * @param nazev hledaný název předmětu
+     * @return předmět zadaného názvu, nebo null, pokud se v prostoru nenachází
      */
     public Vec getVec(String nazev)
     {
@@ -52,9 +52,9 @@ public class Prostor {
     }
 
     /**
-     * Přidá zadaný předmět do prostoru (nebo batohu).
-     * @param vec požadovaný vstup vec
-     * @return logický výsledek volání
+     * Přidá zadaný předmět do tohoto prostoru.
+     * @param vec předmět, který má být přidán
+     * @return přidaný předmět (nebo již existující předmět se stejným názvem)
      */
     public Vec pridejVec(Vec vec)
     {
@@ -67,9 +67,9 @@ public class Prostor {
     }
 
     /**
-     * Odebere předmět zadaného jména z prostoru (nebo batohu) a vrátí na něj odkaz.
-     * @param vec požadovaný vstup vec
-     * @return logický výsledek volání
+     * Odebere předmět zadaného jména z tohoto prostoru a vrátí na něj odkaz.
+     * @param vec předmět k odebrání
+     * @return odebraný předmět
      */
     public Vec odeberVec(Vec vec)
     {
@@ -77,17 +77,17 @@ public class Prostor {
     }
 
     /**
-     * Přidá zadanou postavu (NPC) do aktuálního prostoru.
-     * @param postava požadovaný vstup postava
+     * Přidá zadanou postavu (NPC) do tohoto prostoru.
+     * @param postava postava, která má být přidána
      */
     public void pridejPostavu(NPCPouzeMluvici postava) {
         postavy.put(postava.getJmeno(), postava);
     }
 
     /**
-     * Vrátí odkaz na postavu zadaného jména v aktuálním prostoru.
-     * @param jmeno požadovaný vstup jmeno
-     * @return logický výsledek volání
+     * Vrátí odkaz na postavu zadaného jména v tomto prostoru.
+     * @param jmeno jméno hledané postavy
+     * @return hledaná postava, nebo null, pokud se v prostoru nenachází
      */
     public NPCPouzeMluvici getPostava(String jmeno) {
         return postavy.values().stream()
@@ -97,8 +97,8 @@ public class Prostor {
     }
 
     /**
-     * Metoda pro setVychod.
-     * @param vedlejsi požadovaný vstup vedlejsi
+     * Přidá nový východ (sousední prostor) k tomuto prostoru.
+     * @param vedlejsi sousední prostor
      */
     public void setVychod(Prostor vedlejsi) {
         vychody.add(vedlejsi);
@@ -126,8 +126,8 @@ public class Prostor {
     }
 
     /**
-     * Vrátí název této instance (předmětu, prostoru, příkazu či postavy).
-     * @return logický výsledek volání
+     * Vrátí název tohoto prostoru.
+     * @return název prostoru
      */
     public String getNazev() {
         return nazev;       
@@ -135,7 +135,7 @@ public class Prostor {
 
     /**
      * Vrátí název prostoru bez diakritiky.
-     * @return logický výsledek volání
+     * @return název prostoru bez diakritiky (převedený na malá písmena)
      */
     public String getNazevBD() {
         return nazevBD;
@@ -143,7 +143,7 @@ public class Prostor {
 
     /**
      * Vrátí dlouhý popis prostoru včetně seznamu východů, věcí a postav.
-     * @return logický výsledek volání
+     * @return kompletní popis prostoru
      */
     public String dlouhyPopis() {
         return "Jsi v místnosti/prostoru " + popis + ".\n"
@@ -178,9 +178,9 @@ public class Prostor {
     }
 
     /**
-     * Vrátí odkaz na sousední prostor zadaného jména, pokud takový existuje.
-     * @param nazevSouseda požadovaný vstup nazevSouseda
-     * @return logický výsledek volání
+     * Vrátí odkaz na sousední prostor zadaného názvu, pokud s ním sousedí.
+     * @param nazevSouseda název sousedního prostoru
+     * @return sousední prostor, nebo null, pokud neexistuje
      */
     public Prostor vratSousedniProstor(String nazevSouseda) {
         List<Prostor>hledaneProstory = 
@@ -197,7 +197,7 @@ public class Prostor {
 
     /**
      * Vrátí kolekci všech prostorů, do kterých lze z aktuálního prostoru odejít.
-     * @return logický výsledek volání
+     * @return kolekce sousedních prostorů
      */
     public Collection<Prostor> getVychody() {
         return Collections.unmodifiableCollection(vychody);

@@ -49,7 +49,7 @@ public class Hra implements IHra {
 
     /**
      * Vrátí uvítací text pro hráče při zahájení hry.
-     * @return logický výsledek volání
+     * @return uvítací text
      */
     public String vratUvitani() {
         return "Vítejte na VŠE!\n" +
@@ -62,7 +62,7 @@ public class Hra implements IHra {
 
     /**
      * Vrátí závěrečný text pro hráče po ukončení hry.
-     * @return logický výsledek volání
+     * @return závěrečný epilog
      */
     public String vratEpilog() {
         return textEpilogu;
@@ -70,7 +70,7 @@ public class Hra implements IHra {
 
     /**
      * Vrací informaci, zda hra již skončila (výhrou, prohrou nebo příkazem konec).
-     * @return logický výsledek volání
+     * @return true, pokud hra skončila, jinak false
      */
     public boolean konecHry() {
         return konecHry;
@@ -79,7 +79,7 @@ public class Hra implements IHra {
     /**
      * Zpracuje textový řetězec zadaný hráčem, rozdělí jej na slova a deleguje zpracování příslušnému příkazu. Vrací odpověď hry.
      * @param radek textový příkaz od uživatele
-     * @return logický výsledek volání
+     * @return odpověď hry (výsledek vykonání příkazu)
      */
     public String zpracujPrikaz(String radek) {
         String[] slova = radek.split("[ \t]+");
@@ -123,7 +123,7 @@ public class Hra implements IHra {
 
     /**
      * Nastaví indikátor konce hry na zadanou hodnotu.
-     * @param konecHry požadovaný vstup konecHry
+     * @param konecHry true pro ukončení hry, false pro pokračování
      */
     public void setKonecHry(boolean konecHry) {
         this.konecHry = konecHry;
@@ -131,7 +131,7 @@ public class Hra implements IHra {
 
     /**
      * Ukončí hru se specifickým stavem a nastaví odpovídající epilog.
-     * @param stav požadovaný vstup stav
+     * @param stav konečný stav hry (výhra, prohra atd.)
      * @param epilog závěrečný text po ukončení
      */
     public void setKonecHryS_Epilogem(StavHry stav, String epilog) {
@@ -150,7 +150,7 @@ public class Hra implements IHra {
 
     /**
      * Nastaví, zda si hráč již uspokojil žízeň.
-     * @param stav požadovaný vstup stav
+     * @param stav true, pokud je žízeň uspokojena, jinak false
      */
     public void setUspokojenaZizen(boolean stav) {
         this.uspokojenaZizen = stav;
@@ -158,39 +158,39 @@ public class Hra implements IHra {
 
     /**
      * Vrací informaci, zda již byla žízeň hráče uspokojena.
-     * @return logický výsledek volání
+     * @return true, pokud byla žízeň uspokojena, jinak false
      */
     public boolean isUspokojenaZizen() {
         return uspokojenaZizen;
     }
 
     /**
-     * Metoda pro setVypitoSavo.
-     * @param stav požadovaný vstup stav
+     * Nastaví příznak, zda hráč vypil Savo.
+     * @param stav true, pokud hráč vypil Savo, jinak false
      */
     public void setVypitoSavo(boolean stav) {
         this.vypitoSavo = stav;
     }
 
     /**
-     * Metoda pro isVypitoSavo.
-     * @return logický výsledek volání
+     * Vrací informaci, zda hráč vypil Savo.
+     * @return true, pokud hráč vypil Savo, jinak false
      */
     public boolean isVypitoSavo() {
         return vypitoSavo;
     }
 
     /**
-     * Metoda pro setRozbityAutomat.
-     * @param stav požadovaný vstup stav
+     * Nastaví příznak, zda byl automat rozbit páčidlem.
+     * @param stav true, pokud je automat rozbitý, jinak false
      */
     public void setRozbityAutomat(boolean stav) {
         this.rozbityAutomat = stav;
     }
 
     /**
-     * Metoda pro isRozbityAutomat.
-     * @return logický výsledek volání
+     * Vrací informaci, zda byl automat rozbit páčidlem.
+     * @return true, pokud je automat rozbitý, jinak false
      */
     public boolean isRozbityAutomat() {
         return rozbityAutomat;
@@ -198,7 +198,7 @@ public class Hra implements IHra {
 
     /**
      * Vrátí odkaz na aktuální herní plán (mapu) obsahující místnosti a jejich propojení.
-     * @return logický výsledek volání
+     * @return herní plán
      */
     public HerniPlan getHerniPlan() {
         return herniPlan;
