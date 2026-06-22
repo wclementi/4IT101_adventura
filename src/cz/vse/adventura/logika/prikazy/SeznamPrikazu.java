@@ -29,12 +29,10 @@ public class SeznamPrikazu {
      * @return logický výsledek volání
      */
     public IPrikaz vratPrikaz(String retezec) {
-        if (mapaSPrikazy.containsKey(retezec)) {
-            return mapaSPrikazy.get(retezec);
-        }
-        else {
-            return null;
-        }
+        return mapaSPrikazy.values().stream()
+                .filter(p -> p.getNazev().equalsIgnoreCase(retezec) || p.getNazevBD().equalsIgnoreCase(retezec))
+                .findFirst()
+                .orElse(null);
     }
 
     /**
@@ -43,7 +41,7 @@ public class SeznamPrikazu {
      * @return logický výsledek volání
      */
     public boolean jePlatnyPrikaz(String retezec) {
-        return mapaSPrikazy.containsKey(retezec);
+        return vratPrikaz(retezec) != null;
     }
 
     /**

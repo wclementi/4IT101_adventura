@@ -8,11 +8,13 @@ package cz.vse.adventura.logika.predmety;
 public class Vec
 {
     private String nazev;
+    private String nazevBD;
     private boolean prenositelna;
     private int hmotnost;
 
     public Vec(String nazev, boolean prenositelna, int hmotnost) {
         this.nazev = nazev;
+        this.nazevBD = cz.vse.adventura.logika.TextUtil.odstranDiakritiku(nazev);
         this.prenositelna = prenositelna;
         this.hmotnost = hmotnost;
     }
@@ -26,11 +28,20 @@ public class Vec
     }
 
     /**
+     * Vrátí název bez diakritiky.
+     * @return název bez diakritiky
+     */
+    public String getNazevBD() {
+        return nazevBD;
+    }
+
+    /**
      * Metoda pro setNazev.
      * @param nazev hledaný název
      */
     public void setNazev(String nazev) {
         this.nazev = nazev;
+        this.nazevBD = cz.vse.adventura.logika.TextUtil.odstranDiakritiku(nazev);
     }
 
     /**

@@ -2,6 +2,7 @@ package cz.vse.adventura.logika;
 
 import cz.vse.adventura.logika.prikazy.PrikazJdi;
 import cz.vse.adventura.logika.prikazy.PrikazKonec;
+import cz.vse.adventura.logika.prikazy.PrikazNapoveda;
 import cz.vse.adventura.logika.prikazy.SeznamPrikazu;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,6 +14,7 @@ public class SeznamPrikazuTest
     private Hra hra;
     private PrikazKonec prKonec;
     private PrikazJdi prJdi;
+    private PrikazNapoveda prNapoveda;
     
     @BeforeEach
     public void setUp() {
@@ -36,10 +38,16 @@ public class SeznamPrikazuTest
         SeznamPrikazu seznPrikazu = new SeznamPrikazu();
         seznPrikazu.vlozPrikaz(prKonec);
         seznPrikazu.vlozPrikaz(prJdi);
+        PrikazNapoveda prNap = new PrikazNapoveda(seznPrikazu);
+        seznPrikazu.vlozPrikaz(prNap);
         assertEquals(true, seznPrikazu.jePlatnyPrikaz("konec"));
         assertEquals(true, seznPrikazu.jePlatnyPrikaz("jdi"));
-        assertEquals(false, seznPrikazu.jePlatnyPrikaz("nápověda"));
-        assertEquals(false, seznPrikazu.jePlatnyPrikaz("Konec"));
+        assertEquals(true, seznPrikazu.jePlatnyPrikaz("nápověda"));
+        assertEquals(true, seznPrikazu.jePlatnyPrikaz("nApoVedA"));
+        assertEquals(true, seznPrikazu.jePlatnyPrikaz("Konec"));
+        assertEquals(false, seznPrikazu.jePlatnyPrikaz("seber"));
+        assertEquals(false, seznPrikazu.jePlatnyPrikaz("promluv s"));
+        assertEquals(false, seznPrikazu.jePlatnyPrikaz("naplň"));
     }
     
     @Test
