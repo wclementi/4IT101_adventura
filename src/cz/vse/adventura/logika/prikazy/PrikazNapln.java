@@ -30,7 +30,7 @@ public class PrikazNapln implements IPrikaz {
 
         Batoh batoh = Batoh.getInstance();
 
-        if (!batoh.jeVecVBatohu("telefon_s_aplikaci_lokni_si")) {
+        if (!batoh.jeVecVBatohu("telefon_s_aplikací_lokni_si")) {
             return "K použití LOKNI SI automatu potřebuješ mobil s nainstalovanou aplikací.";
         }
 
@@ -51,10 +51,10 @@ public class PrikazNapln implements IPrikaz {
             }
         } else if (cistyNazev.equals("prazdna_lahev_od_sava")) {
             try {
-                batoh.odeberVec("prázdná_lahev_od_sava");
-                batoh.pridejVec(new Vec("plná_lahev_od_sava", true, 2));
+                batoh.odeberVec("prázdná_lahev_od_Sava");
+                batoh.pridejVec(new Vec("plná_lahev_od_Sava", true, 2));
                 batoh.setTelefonPouzit(true);
-                return "Přiložil jsi telefon k automatu a naplnil jsi prázdnou lahev od sava vodou. (Smrdí to divně...)";
+                return "Přiložil jsi telefon k automatu a naplnil jsi prázdnou lahev od Sava vodou. (Smrdí to divně...)";
             } catch (Exception e) {
                 return "Máš moc plný batoh, vodu nelze napustit.";
             }

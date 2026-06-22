@@ -3,12 +3,12 @@
 **Autor:** Kajetan Franciszek Wielgosz
 
 ## O hře
-Přežij na VŠE je textová adventura vytvořená jako semestrální projekt. Ocitáte se na Vysoké škole ekonomické hned po náročné přednášce 4IT101. Vaším cílem je uspokojit nesnesitelnou žízeň a včas dorazit na další, tentokrát povinnou přednášku, která rozhodne o vaší akademické budoucnosti. Stihnete to včas?.
+Přežij na VŠE je textová adventura vytvořená jako semestrální projekt. Ocitáte se na Vysoké škole ekonomické hned po náročné přednášce 4IT101. Vaším cílem je uspokojit nesnesitelnou žízeň a včas dorazit na další, tentokrát povinnou přednášku, která rozhodne o vaší akademické budoucnosti. Stihnete to včas?
 
 ## Cíl hry
 1. Prozkoumat areál VŠE.
 2. Uhasit žízeň (existuje několik možností).
-3. Dostavit se včas na další přednášku a zjištit kde se koná.
+3. Dostavit se včas na další přednášku a zjistit, kde se koná.
 
 Dejte si pozor na limit tahů! Pokud se budete po škole bezcílně potulovat příliš dlouho, zmeškáte přednášku a hra končí neúspěchem.
 
@@ -33,7 +33,7 @@ Zde je seznam platných příkazů:
 - `naplň <lahev>` – U speciálních automatů (např. LOKNI SI) naplní prázdnou lahev vodou.
 - `pij <nápoj>` – Vypije nápoj a zruší vaši žízeň.
 - `promluv <postava>` – Zahájí rozhovor s NPC postavou v místnosti.
-- `rozbij <předmět>` – zjisti ve hře co se stane (vyžaduje předmět v batohu).
+- `rozbij <předmět>` – zjistíte ve hře (vyžaduje předmět v batohu).
 - `sedni` – Sedne si na volné místo, pokud se nějaké nachází v prostoru. Nutné pro ukončení hry.
 - `nápověda` – Zobrazí seznam příkazů přímo ve hře.
 - `log` – Zobrazí kompletní historii vašich dosavadních kroků (příkazy a odpovědi).

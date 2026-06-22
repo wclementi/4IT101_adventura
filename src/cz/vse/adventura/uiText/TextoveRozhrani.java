@@ -55,13 +55,18 @@ public class TextoveRozhrani {
             }
 
             String radek = prectiString();
+            if (radek == null) {
+                break;
+            }
             posledniOdpoved = hra.zpracujPrikaz(radek);
 
             if (radek.startsWith("promluv") || radek.startsWith("log") || radek.startsWith("nápověda")) {
                 vymazKonzoli();
                 System.out.println(posledniOdpoved);
                 System.out.println("\n[Stiskněte ENTER pro návrat do hry...]");
-                scanner.nextLine();
+                if (scanner.hasNextLine()) {
+                    scanner.nextLine();
+                }
                 
                 // Po návratu ukážeme znovu lokaci, aby hráč věděl, kde je
                 if (!hra.konecHry()) {
@@ -75,7 +80,9 @@ public class TextoveRozhrani {
         vymazKonzoli();
         System.out.println(hra.vratEpilog());
         System.out.println("\n[Stiskněte ENTER pro ukončení hry...]");
-        scanner.nextLine();
+        if (scanner.hasNextLine()) {
+            scanner.nextLine();
+        }
     }
 
     /**
@@ -122,6 +129,9 @@ public class TextoveRozhrani {
 
     private String prectiString() {
         System.out.print("> ");
-        return scanner.nextLine();
+        if (scanner.hasNextLine()) {
+            return scanner.nextLine();
+        }
+        return null;
     }
 }

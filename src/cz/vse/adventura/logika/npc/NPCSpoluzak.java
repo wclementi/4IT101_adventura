@@ -16,9 +16,9 @@ public class NPCSpoluzak extends NPCPouzeMluvici {
     }
 
     /**
-     * Metoda pro dejPenize.
-     * @param batoh požadovaný vstup batoh
-     * @return logický výsledek volání
+     * Předá mince hráči do batohu, pokud mu je ještě nepředal.
+     * @param batoh batoh hráče, kam se mince vloží
+     * @return true, pokud byly peníze úspěšně předány, jinak false
      */
     public boolean dejPenize(Batoh batoh) {
         if (!dalPenize) {

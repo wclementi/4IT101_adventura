@@ -17,7 +17,7 @@ public class PrikazSeber implements IPrikaz {
     @Override
     public String provedPrikaz(String... parametry) {
         if (parametry.length == 0) {
-            return "Co mám sebrat - musíš napsat název věci, kterou mám sebrat.";
+            return "Co mám sebrat? Musíš napsat název věci, kterou mám sebrat.";
         }
 
         String nazev = parametry[0];

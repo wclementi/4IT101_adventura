@@ -21,43 +21,43 @@ public class NPCTypecka extends NPCPouzeMluvici {
         Batoh batoh = Batoh.getInstance();
 
         if (vraceno) {
-            return "(typecka): \"Ještě jednou ahoj, uvidíme se na přednášce.\"";
+            return "(týpečka): \"Ještě jednou ahoj, uvidíme se na přednášce.\"";
         }
 
         if (pujcilaMobil) {
-            if (batoh.jeVecVBatohu("telefon_s_aplikaci_lokni_si")) {
+            if (batoh.jeVecVBatohu("telefon_s_aplikací_lokni_si")) {
                 if (!batoh.isTelefonPouzit()) {
-                    return "(typecka): \"Ještě sis nenatočil vodu? Tak šup, já tu počkám.\"";
+                    return "(týpečka): \"Ještě sis nenatočil vodu? Tak šup, já tu počkám.\"";
                 }
                 try {
-                    batoh.odeberVec("telefon_s_aplikaci_lokni_si");
+                    batoh.odeberVec("telefon_s_aplikací_lokni_si");
                     vraceno = true;
-                    return "(ty): \"Tady mas mobil, jeste jednou diky moc\"\n" +
-                           "(typecka): \"Neni za co dekovat. Uvidime se na prednasce.\"";
+                    return "(ty): \"Tady máš mobil, ještě jednou díky moc.\"\n" +
+                           "(týpečka): \"Není za co děkovat. Uvidíme se na přednášce.\"";
                 } catch (Exception e) {
                     return "(ty): \"Mám ten mobil, ale nejde mi ho teď vyndat z batohu...\"";
                 }
             } else {
-                return "(typecka): \"Kde máš ten mobil? Budu tady čekat, pospěš si.\"";
+                return "(týpečka): \"Kde máš ten mobil? Budu tady čekat, pospěš si.\"";
             }
         }
 
         String zakladDialogu = "(ty): \"Čau, poznávám tě z přednášek. Na co tady čekáš?\"\n" +
-                "(typecka): \"Ahooj, čekám tady na kamarádku, zachvíli jdem na přednášku.\"\n" +
-                "(ty): \"To asi jden na stejnou, ekonomie zejo?\"\n" +
-                "(typecka): \"Presne tak\"\n" +
-                "(ty): \"Nepamatuješ si náhodou v jaké místnoti bude?\"\n" +
-                "(typecka): \"V likešově aule, ukazuje mi to tady na mobilu v My College aplikaci.\"\n";
+                "(týpečka): \"Ahoj, čekám tady na kamarádku, za chvíli jdeme na přednášku.\"\n" +
+                "(ty): \"To asi jdeme na stejnou, ekonomie, že jo?\"\n" +
+                "(týpečka): \"Přesně tak.\"\n" +
+                "(ty): \"Nepamatuješ si náhodou, v jaké místnosti bude?\"\n" +
+                "(týpečka): \"V Likešově aule, ukazuje mi to tady na mobilu v aplikaci My College.\"\n";
 
-        if (batoh.jeVecVBatohu("prázdná_lahev") || batoh.jeVecVBatohu("prázdná_lahev_od_sava") || batoh.jeVecVBatohu("nápoj")) {
+        if (batoh.jeVecVBatohu("prázdná_lahev") || batoh.jeVecVBatohu("prázdná_lahev_od_Sava") || batoh.jeVecVBatohu("nápoj")) {
             try {
-                batoh.pridejVec(new Vec("telefon_s_aplikaci_lokni_si", true, 1));
+                batoh.pridejVec(new Vec("telefon_s_aplikací_lokni_si", true, 1));
                 pujcilaMobil = true;
                 return zakladDialogu +
-                        "(ty): \"Myslíš že bys mi mohla půjčit mobil s apkou na tocení vody? mám strašnou žízeň a zrovna se mi vybil mobil\"\n" +
-                        "(typecka): \"Urcite tady mas jen mi ho prosim rychle vrať.\"\n" +
-                        "(ty): \" Jasny, díky moc. Hned se vrátím.\"\n" +
-                        "(typecka): \"Budu tady cekat)\"";
+                        "(ty): \"Myslíš, že bys mi mohla půjčit mobil s aplikací na točení vody? Mám strašnou žízeň a zrovna se mi vybil mobil.\"\n" +
+                        "(týpečka): \"Určitě, tady máš, jen mi ho prosím rychle vrať.\"\n" +
+                        "(ty): \"Jasně, díky moc. Hned se vrátím.\"\n" +
+                        "(týpečka): \"Budu tady čekat.\"";
             } catch (Exception e) {
                 return zakladDialogu + "(ty): \"Máš mobil s aplikací? Škoda, že mám teď tak plný batoh...\"";
             }

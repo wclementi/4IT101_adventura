@@ -23,11 +23,11 @@ public class NPCDominik extends NPCPouzeMluvici {
             return "(dominik): \"Díky ještě jednou za tu učebnici!\"";
         }
 
-        String zakladDialogu = "(dominik): \"Nazdar! co ty tady?\"\n" +
-                "(ty): \"Zrovna jdu kolem, hledam neco k piti. Nemas nahodou neco u sebe?\"\n" +
-                "(dominik): \"Bohuzel ne, uz jsem vypil pak si pujdu ale napustit.\"\n" +
-                "(ty): \"Ty mas lahev? myslis ze bys mi ji mohl dat? Fakt umiram zizni…\"\n" +
-                "(dominik): \"Asi ji budu potrebovat, jestli bys mi pujcil ucebnici na ekonomii tak bych ti ji dal\"\n";
+        String zakladDialogu = "(dominik): \"Nazdar! Co ty tady?\"\n" +
+                "(ty): \"Zrovna jdu kolem, hledám něco k pití. Nemáš náhodou něco u sebe?\"\n" +
+                "(dominik): \"Bohužel ne, už jsem dopil, pak si ale půjdu napustit.\"\n" +
+                "(ty): \"Ty máš lahev? Myslíš, že bys mi ji mohl dát? Fakt umírám žízní...\"\n" +
+                "(dominik): \"Asi ji budu potřebovat. Jestli bys mi půjčil učebnici na ekonomii, tak bych ti ji dal.\"\n";
 
         if (batoh.jeVecVBatohu("učebnice_ekonomie")) {
             try {
@@ -35,15 +35,15 @@ public class NPCDominik extends NPCPouzeMluvici {
                 batoh.pridejVec(new Vec("prázdná_lahev", true, 1));
                 dalLahev = true;
                 return zakladDialogu +
-                        "(ty): \"Super, zrovna mám jednu u sebe. Tady máš\"\n" +
-                        "(dominik): \"Diky moc! Tady je ta lahev.\"";
+                        "(ty): \"Super, zrovna mám jednu u sebe. Tady máš.\"\n" +
+                        "(dominik): \"Díky moc! Tady je ta lahev.\"";
             } catch (Exception e) {
                 return zakladDialogu + "(ty): \"Mám ji u sebe, ale mám teď nějak plný batoh...\"";
             }
         } else {
             return zakladDialogu +
-                    "(ty): \"To zrovna nemam u sebe ale myslim ze jsem ji tady nekde videl, zkusim ji najit a kdyztak prinesu.\"\n" +
-                    "(dominik): \"To zni fajn, ja pockam tady. \"";
+                    "(ty): \"To zrovna nemám u sebe, ale myslím, že jsem ji tady někde viděl. Zkusím ji najít a kdyžtak přinesu.\"\n" +
+                    "(dominik): \"To zní fajn, já počkám tady.\"";
         }
     }
 }

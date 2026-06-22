@@ -49,11 +49,11 @@ public class Hra implements IHra {
 
     /**
      * Vrátí uvítací text pro hráče při zahájení hry.
-     * @return logický výsledek volání
+     * @return uvítací text
      */
     public String vratUvitani() {
         return "Vítejte na VŠE!\n" +
-                "Jsi v učebně informatiky, právě skončila přednáška 4IT101 a máš strašnou žízeň. Tvým úkolem je najít něco co uhasí tvoji žízeň a dostavit se včas na další přednášku ekonomie. Hodně štěstí!\n"
+                "Jsi v učebně informatiky, právě skončila přednáška 4IT101 a máš strašnou žízeň. Tvým úkolem je najít něco, co uhasí tvoji žízeň, a dostavit se včas na další přednášku ekonomie. Hodně štěstí!\n"
                 +
                 "Napište 'nápověda', pokud si nevíte rady, jak hrát dál.\n" +
                 "\n" +
@@ -62,7 +62,7 @@ public class Hra implements IHra {
 
     /**
      * Vrátí závěrečný text pro hráče po ukončení hry.
-     * @return logický výsledek volání
+     * @return závěrečný epilog
      */
     public String vratEpilog() {
         return textEpilogu;
@@ -70,7 +70,7 @@ public class Hra implements IHra {
 
     /**
      * Vrací informaci, zda hra již skončila (výhrou, prohrou nebo příkazem konec).
-     * @return logický výsledek volání
+     * @return true, pokud hra skončila, jinak false
      */
     public boolean konecHry() {
         return konecHry;
@@ -79,10 +79,13 @@ public class Hra implements IHra {
     /**
      * Zpracuje textový řetězec zadaný hráčem, rozdělí jej na slova a deleguje zpracování příslušnému příkazu. Vrací odpověď hry.
      * @param radek textový příkaz od uživatele
-     * @return logický výsledek volání
+     * @return odpověď hry (výsledek vykonání příkazu)
      */
     public String zpracujPrikaz(String radek) {
-        String[] slova = radek.split("[ \t]+");
+        if (radek == null || radek.trim().isEmpty()) {
+            return "Zadej prosím nějaký příkaz.";
+        }
+        String[] slova = radek.trim().split("[ \t]+");
         String slovoPrikazu = slova[0];
         String[] parametry = new String[slova.length - 1];
         for (int i = 0; i < parametry.length; i++) {
@@ -97,14 +100,14 @@ public class Hra implements IHra {
                 zbyvajiciTahy--;
                 if (zbyvajiciTahy <= 0) {
                     setKonecHryS_Epilogem(StavHry.BAD_ENDING,
-                            "Kouknul jsi na hodinky a uvědomil sis, že jdeš pozdě. Navíc přednáška, na které jsi měl být byla povinná a rozhodovala o tvé akademické budoucnosti. S poraženým výrazem jsi následně opustil VŠE a zaměřil k nejbližšímu mekáči hledat práci.");
+                            "Podíval ses na hodinky a uvědomil sis, že jdeš pozdě. Navíc přednáška, na které jsi měl být, byla povinná a rozhodovala o tvé akademické budoucnosti. S poraženým výrazem jsi následně opustil VŠE a zamířil k nejbližšímu mekáči hledat práci.");
                     textKVypsani += "\n\n" + vratEpilog();
                 } else {
                     textKVypsani += "\n(Zbývající tahy: " + zbyvajiciTahy + ")";
                 }
             }
         } else {
-            textKVypsani = "Nevím co tím myslíš? Tento příkaz neznám. ";
+            textKVypsani = "Nevím, co tím myslíš. Tento příkaz neznám.";
         }
         
         historie.add("> " + radek);
@@ -123,7 +126,7 @@ public class Hra implements IHra {
 
     /**
      * Nastaví indikátor konce hry na zadanou hodnotu.
-     * @param konecHry požadovaný vstup konecHry
+     * @param konecHry true pro ukončení hry, false pro pokračování
      */
     public void setKonecHry(boolean konecHry) {
         this.konecHry = konecHry;
@@ -131,7 +134,7 @@ public class Hra implements IHra {
 
     /**
      * Ukončí hru se specifickým stavem a nastaví odpovídající epilog.
-     * @param stav požadovaný vstup stav
+     * @param stav konečný stav hry (výhra, prohra atd.)
      * @param epilog závěrečný text po ukončení
      */
     public void setKonecHryS_Epilogem(StavHry stav, String epilog) {
@@ -150,7 +153,7 @@ public class Hra implements IHra {
 
     /**
      * Nastaví, zda si hráč již uspokojil žízeň.
-     * @param stav požadovaný vstup stav
+     * @param stav true, pokud je žízeň uspokojena, jinak false
      */
     public void setUspokojenaZizen(boolean stav) {
         this.uspokojenaZizen = stav;
@@ -158,39 +161,39 @@ public class Hra implements IHra {
 
     /**
      * Vrací informaci, zda již byla žízeň hráče uspokojena.
-     * @return logický výsledek volání
+     * @return true, pokud byla žízeň uspokojena, jinak false
      */
     public boolean isUspokojenaZizen() {
         return uspokojenaZizen;
     }
 
     /**
-     * Metoda pro setVypitoSavo.
-     * @param stav požadovaný vstup stav
+     * Nastaví příznak, zda hráč vypil Savo.
+     * @param stav true, pokud hráč vypil Savo, jinak false
      */
     public void setVypitoSavo(boolean stav) {
         this.vypitoSavo = stav;
     }
 
     /**
-     * Metoda pro isVypitoSavo.
-     * @return logický výsledek volání
+     * Vrací informaci, zda hráč vypil Savo.
+     * @return true, pokud hráč vypil Savo, jinak false
      */
     public boolean isVypitoSavo() {
         return vypitoSavo;
     }
 
     /**
-     * Metoda pro setRozbityAutomat.
-     * @param stav požadovaný vstup stav
+     * Nastaví příznak, zda byl automat rozbit páčidlem.
+     * @param stav true, pokud je automat rozbitý, jinak false
      */
     public void setRozbityAutomat(boolean stav) {
         this.rozbityAutomat = stav;
     }
 
     /**
-     * Metoda pro isRozbityAutomat.
-     * @return logický výsledek volání
+     * Vrací informaci, zda byl automat rozbit páčidlem.
+     * @return true, pokud je automat rozbitý, jinak false
      */
     public boolean isRozbityAutomat() {
         return rozbityAutomat;
@@ -198,7 +201,7 @@ public class Hra implements IHra {
 
     /**
      * Vrátí odkaz na aktuální herní plán (mapu) obsahující místnosti a jejich propojení.
-     * @return logický výsledek volání
+     * @return herní plán
      */
     public HerniPlan getHerniPlan() {
         return herniPlan;
