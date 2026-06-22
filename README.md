@@ -5,6 +5,9 @@ Tento projekt je semestrální prací pro předmět **4IT101** na VŠE. Jedná s
 ## 🎓 Autor
 **Kajetan Franciszek Wielgosz**
 
+## 📦 Verze
+**Verze:** 1.0.0 
+
 ## 📖 O hře
 Příběh se odehrává v kampusu VŠE. Hráč se ocitá v učebně informatiky ihned po skončení přednášky. Trpí extrémní žízní a navíc musí co nejrychleji najít cestu na další povinnou přednášku ekonomie do Likešovy auly. Cílem hry je zajistit si zdroj pitné vody (přes interakce s NPC postavami, nákup z automatů nebo plnění lahví), ukojit žízeň a bezpečně dorazit do cílové místnosti před vypršením časového limitu (počtu tahů).
 
