@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 public class Prostor {
 
     private String nazev;
+    private String nazevBD;
     private String popis;
     private Set<Prostor> vychody;
     private Map<String, Vec> veci;
@@ -20,6 +21,7 @@ public class Prostor {
 
     public Prostor(String nazev, String popis) {
         this.nazev = nazev;
+        this.nazevBD = cz.vse.adventura.logika.TextUtil.odstranDiakritiku(nazev);
         this.popis = popis;
         vychody = new HashSet<>();
         veci = new HashMap<>();
@@ -33,7 +35,7 @@ public class Prostor {
      */
     public boolean jeVecVProstoru(String nazev)
     {
-        return veci.containsKey(nazev);
+        return getVec(nazev) != null;
     }
 
     /**
@@ -43,7 +45,10 @@ public class Prostor {
      */
     public Vec getVec(String nazev)
     {
-        return veci.get(nazev);
+        return veci.values().stream()
+                .filter(v -> v.getNazev().equalsIgnoreCase(nazev) || v.getNazevBD().equalsIgnoreCase(nazev))
+                .findFirst()
+                .orElse(null);
     }
 
     /**
@@ -85,7 +90,10 @@ public class Prostor {
      * @return logický výsledek volání
      */
     public NPCPouzeMluvici getPostava(String jmeno) {
-        return postavy.get(jmeno);
+        return postavy.values().stream()
+                .filter(p -> p.getJmeno().equalsIgnoreCase(jmeno) || p.getJmenoBD().equalsIgnoreCase(jmeno))
+                .findFirst()
+                .orElse(null);
     }
 
     /**
@@ -123,6 +131,14 @@ public class Prostor {
      */
     public String getNazev() {
         return nazev;       
+    }
+
+    /**
+     * Vrátí název prostoru bez diakritiky.
+     * @return logický výsledek volání
+     */
+    public String getNazevBD() {
+        return nazevBD;
     }
 
     /**
@@ -169,7 +185,7 @@ public class Prostor {
     public Prostor vratSousedniProstor(String nazevSouseda) {
         List<Prostor>hledaneProstory = 
             vychody.stream()
-                   .filter(sousedni -> sousedni.getNazev().equals(nazevSouseda))
+                   .filter(sousedni -> sousedni.getNazev().equalsIgnoreCase(nazevSouseda) || sousedni.getNazevBD().equalsIgnoreCase(nazevSouseda))
                    .collect(Collectors.toList());
         if(hledaneProstory.isEmpty()){
             return null;

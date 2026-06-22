@@ -38,7 +38,8 @@ public class Batoh
      */
     public boolean jeVecVBatohu(String nazev)
     {
-        return veci.containsKey(nazev);
+        return veci.values().stream()
+                .anyMatch(v -> v.getNazev().equalsIgnoreCase(nazev) || v.getNazevBD().equalsIgnoreCase(nazev));
     }
 
     /**
@@ -48,10 +49,14 @@ public class Batoh
      */
     public Vec getVec(String nazev) throws Exception
     {
-        if(!jeVecVBatohu(nazev)){
+        Vec found = veci.values().stream()
+                .filter(v -> v.getNazev().equalsIgnoreCase(nazev) || v.getNazevBD().equalsIgnoreCase(nazev))
+                .findFirst()
+                .orElse(null);
+        if(found == null){
             throw new Exception("V batohu se tato vec nenachazi.");
         }else{
-            return veci.get(nazev);
+            return found;
         }
     }
 
@@ -72,10 +77,14 @@ public class Batoh
      */
     public Vec odeberVec(String nazev) throws Exception
     {
-        if(!jeVecVBatohu(nazev)){
+        Vec found = veci.values().stream()
+                .filter(v -> v.getNazev().equalsIgnoreCase(nazev) || v.getNazevBD().equalsIgnoreCase(nazev))
+                .findFirst()
+                .orElse(null);
+        if(found == null){
             throw new Exception("Tato vec neni v batohu");
         }else {
-            return veci.remove(nazev);
+            return veci.remove(found.getNazev());
         }
     }
 

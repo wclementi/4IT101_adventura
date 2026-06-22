@@ -8,10 +8,12 @@ package cz.vse.adventura.logika.npc;
  */
 public class NPCPouzeMluvici {
     protected String jmeno;
+    protected String jmenoBD;
     protected String text;
 
     public NPCPouzeMluvici(String jmeno, String text) {
         this.jmeno = jmeno;
+        this.jmenoBD = cz.vse.adventura.logika.TextUtil.odstranDiakritiku(jmeno);
         this.text = text;
     }
 
@@ -21,6 +23,14 @@ public class NPCPouzeMluvici {
      */
     public String getJmeno() {
         return jmeno;
+    }
+
+    /**
+     * Vrátí jméno postavy bez diakritiky.
+     * @return logický výsledek volání
+     */
+    public String getJmenoBD() {
+        return jmenoBD;
     }
 
     /**

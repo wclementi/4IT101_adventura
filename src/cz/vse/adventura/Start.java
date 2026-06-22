@@ -9,21 +9,20 @@ import cz.vse.adventura.uiText.TextoveRozhrani;
  *
  * @author Kajetan Franciszek Wielgosz
  */
-public class Start
-{
+public class Start {
     /**
      * Metoda pro main.
+     * 
      * @param args požadovaný vstup args
      */
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         IHra hra = new Hra();
         TextoveRozhrani ui = new TextoveRozhrani(hra);
-        
+
         if (args.length == 0) {
             ui.hraj();
         } else {
-            ui.hrajZeSouboru(args[0]);
+            ui.hrajZeSouboru("prikazy.txt");
         }
     }
 }

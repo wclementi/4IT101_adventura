@@ -35,4 +35,9 @@ public class PrikazSeber implements IPrikaz {
     public String getNazev() {
         return NAZEV;
     }
+    
+    @Override
+    public String getPouziti() {
+        return "seber <název předmětu>";
+    }
 }

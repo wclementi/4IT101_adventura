@@ -38,7 +38,9 @@ public class PrikazNapln implements IPrikaz {
             return "Takovou věc v batohu nemáš.";
         }
 
-        if (nazevLahve.equals("prázdná_lahev")) {
+        String cistyNazev = cz.vse.adventura.logika.TextUtil.odstranDiakritiku(nazevLahve);
+
+        if (cistyNazev.equals("prazdna_lahev")) {
             try {
                 batoh.odeberVec("prázdná_lahev");
                 batoh.pridejVec(new Vec("plná_lahev", true, 2));
@@ -47,7 +49,7 @@ public class PrikazNapln implements IPrikaz {
             } catch (Exception e) {
                 return "Máš moc plný batoh, vodu nelze napustit.";
             }
-        } else if (nazevLahve.equals("prázdná_lahev_od_sava")) {
+        } else if (cistyNazev.equals("prazdna_lahev_od_sava")) {
             try {
                 batoh.odeberVec("prázdná_lahev_od_sava");
                 batoh.pridejVec(new Vec("plná_lahev_od_sava", true, 2));
@@ -64,5 +66,10 @@ public class PrikazNapln implements IPrikaz {
     @Override
     public String getNazev() {
         return NAZEV;
+    }
+
+    @Override
+    public String getPouziti() {
+        return "naplň <název lahve>";
     }
 }
