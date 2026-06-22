@@ -18,16 +18,16 @@ public class NPCPouzeMluvici {
     }
 
     /**
-     * Metoda pro getJmeno.
-     * @return logický výsledek volání
+     * Vrátí jméno postavy.
+     * @return jméno postavy
      */
     public String getJmeno() {
         return jmeno;
     }
 
     /**
-     * Vrátí jméno postavy bez diakritiky.
-     * @return logický výsledek volání
+     * Vrátí jméno postavy bez diakritiky (převedené na malá písmena).
+     * @return jméno postavy bez diakritiky
      */
     public String getJmenoBD() {
         return jmenoBD;
@@ -35,7 +35,7 @@ public class NPCPouzeMluvici {
 
     /**
      * Vrátí text dialogu této postavy.
-     * @return logický výsledek volání
+     * @return text dialogu
      */
     public String mluv() {
         return text;

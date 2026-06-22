@@ -15,16 +15,16 @@ public class ProstorSpecialni extends Prostor {
     }
 
     /**
-     * Metoda pro isZamceno.
-     * @return logický výsledek volání
+     * Zjišťuje, zda je prostor zamčený.
+     * @return true, pokud je prostor zamčený, jinak false
      */
     public boolean isZamceno() {
         return zamceno;
     }
 
     /**
-     * Metoda pro setZamceno.
-     * @param zamceno požadovaný vstup zamceno
+     * Nastaví stav zamčení prostoru.
+     * @param zamceno true pro zamčený prostor, false pro odemčený
      */
     public void setZamceno(boolean zamceno) {
         this.zamceno = zamceno;

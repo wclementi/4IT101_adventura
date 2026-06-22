@@ -22,7 +22,7 @@ public class Batoh
 
     /**
      * Vrátí jedinou (singleton) instanci batohu.
-     * @return logický výsledek volání
+     * @return instance batohu
      */
     public static Batoh getInstance() {
         if (instance == null) {
@@ -32,9 +32,9 @@ public class Batoh
     }
 
     /**
-     * Zjišťuje, zda se v batohu nachází předmět daného jména.
-     * @param nazev hledaný název
-     * @return logický výsledek volání
+     * Zjišťuje, zda se v batohu nachází předmět daného názvu.
+     * @param nazev hledaný název předmětu
+     * @return true, pokud předmět v batohu je, jinak false
      */
     public boolean jeVecVBatohu(String nazev)
     {
@@ -43,9 +43,10 @@ public class Batoh
     }
 
     /**
-     * Vrátí odkaz na předmět zadaného jména, který se nachází v prostoru (nebo batohu).
+     * Vrátí odkaz na předmět zadaného názvu, který se nachází v batohu.
      * @param nazev hledaný název
-     * @return logický výsledek volání
+     * @return předmět zadaného názvu
+     * @throws Exception pokud se věc v batohu nenachází
      */
     public Vec getVec(String nazev) throws Exception
     {
@@ -54,7 +55,7 @@ public class Batoh
                 .findFirst()
                 .orElse(null);
         if(found == null){
-            throw new Exception("V batohu se tato vec nenachazi.");
+            throw new Exception("V batohu se tato věc nenachází.");
         }else{
             return found;
         }
@@ -71,9 +72,10 @@ public class Batoh
     }
 
     /**
-     * Odebere předmět zadaného jména z prostoru (nebo batohu) a vrátí na něj odkaz.
-     * @param nazev hledaný název
-     * @return logický výsledek volání
+     * Odebere předmět zadaného názvu z batohu a vrátí na něj odkaz.
+     * @param nazev hledaný název předmětu
+     * @return odebraný předmět
+     * @throws Exception pokud předmět v batohu není
      */
     public Vec odeberVec(String nazev) throws Exception
     {
@@ -82,37 +84,38 @@ public class Batoh
                 .findFirst()
                 .orElse(null);
         if(found == null){
-            throw new Exception("Tato vec neni v batohu");
+            throw new Exception("Tato věc není v batohu.");
         }else {
             return veci.remove(found.getNazev());
         }
     }
 
     /**
-     * Přidá zadaný předmět do prostoru (nebo batohu).
-     * @param vec požadovaný vstup vec
-     * @return logický výsledek volání
+     * Přidá zadaný předmět do batohu, pokud není překročena kapacita nebo nosnost.
+     * @param vec předmět, který má být přidán
+     * @return přidaný předmět
+     * @throws Exception pokud předmět v batohu již je, nebo je překročena kapacita/nosnost batohu
      */
     public Vec pridejVec(Vec vec) throws Exception
     {
         if(jeVecVBatohu(vec.getNazev()))
         {
-            throw new Exception("Tato vec jiz v batohu je");
+            throw new Exception("Tato věc již v batohu je.");
         }
         else if(maximalniKapacita < veci.size() + 1)
         {
-            throw new Exception("Max kapacita nesmi byt prekrocena");
+            throw new Exception("Maximální kapacita nesmí být překročena.");
         }
         if(maximalniNosnost < getHmotnost() + vec.getHmotnost())
         {
-            throw new Exception("Nosnost nesmi byt prekrocena");
+            throw new Exception("Nosnost nesmí být překročena.");
         }
         return veci.put(vec.getNazev(), vec);
     }
 
     /**
-     * Vrátí textový výpis aktuálního obsahu batohu.
-     * @return logický výsledek volání
+     * Vrátí textový popis aktuálního obsahu batohu (seznam věcí).
+     * @return textový popis obsahu batohu
      */
     public String getPopisObsahu() {
         if (veci.isEmpty()) {
@@ -135,7 +138,7 @@ public class Batoh
 
     /**
      * Zjišťuje, zda již hráč použil telefon u automatu.
-     * @return logický výsledek volání
+     * @return true, pokud byl telefon u automatu použit, jinak false
      */
     public boolean isTelefonPouzit() {
         return telefonPouzit;
@@ -143,7 +146,7 @@ public class Batoh
 
     /**
      * Nastaví příznak, zda byl telefon u automatu použit.
-     * @param telefonPouzit požadovaný vstup telefonPouzit
+     * @param telefonPouzit true, pokud byl telefon použit, jinak false
      */
     public void setTelefonPouzit(boolean telefonPouzit) {
         this.telefonPouzit = telefonPouzit;

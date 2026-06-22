@@ -33,7 +33,7 @@ public class HraTest {
 
         assertTrue(hra.konecHry());
         assertTrue(
-                hra.vratEpilog().contains("Uspokojil sis svojí žízeň a stihnul přednášku, další přežitý den na VŠE"));
+                hra.vratEpilog().contains("Uspokojil sis svoji žízeň a stihl přednášku"));
     }
 
     @Test
@@ -58,7 +58,7 @@ public class HraTest {
 
         assertTrue(hra.konecHry());
         assertTrue(
-                hra.vratEpilog().contains("Uspokojil sis svojí žízeň a stihnul přednášku, další přežitý den na VŠE"));
+                hra.vratEpilog().contains("Uspokojil sis svoji žízeň a stihl přednášku"));
     }
 
     @Test
@@ -81,7 +81,7 @@ public class HraTest {
         hra.zpracujPrikaz("sedni");
 
         assertTrue(hra.konecHry());
-        assertTrue(hra.vratEpilog().contains("ale za jakou cenu?"));
+        assertTrue(hra.vratEpilog().contains("za jakou cenu?"));
     }
 
     @Test
@@ -93,7 +93,7 @@ public class HraTest {
         hra.zpracujPrikaz("jdi vychod_z_VSE");
 
         assertTrue(hra.konecHry());
-        assertTrue(hra.vratEpilog().contains("Stejně nejsem studyjní typ"));
+        assertTrue(hra.vratEpilog().contains("Stejně nejsem studijní typ"));
     }
 
     @Test
@@ -103,7 +103,7 @@ public class HraTest {
         }
 
         assertTrue(hra.konecHry());
-        assertTrue(hra.vratEpilog().contains("Kouknul jsi na hodinky a uvědomil sis, že jdeš pozdě."));
+        assertTrue(hra.vratEpilog().contains("Podíval ses na hodinky a uvědomil sis, že jdeš pozdě."));
     }
 
     @Test

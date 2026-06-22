@@ -35,7 +35,7 @@ public class PrikazPij implements IPrikaz {
 
         if (cistyNazev.equals("plna_lahev_od_sava")) {
             hra.setVypitoSavo(true);
-            return "Vypil jsi něco z lahve od sava. Udělalo se ti docela špatně, ale zatím se držíš na nohou. Měl by sis jít rychle sednout na přednášku.";
+            return "Vypil jsi něco z lahve od Sava. Udělalo se ti docela špatně, ale zatím se držíš na nohou. Měl by sis jít rychle sednout na přednášku.";
         } else {
             hra.setUspokojenaZizen(true);
             return "Vypil jsi '" + nazev
