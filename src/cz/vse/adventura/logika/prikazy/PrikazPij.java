@@ -43,4 +43,9 @@ public class PrikazPij implements IPrikaz {
     public String getNazev() {
         return NAZEV;
     }
+    
+    @Override
+    public String getPouziti() {
+        return "pij <název nápoje>";
+    }
 }

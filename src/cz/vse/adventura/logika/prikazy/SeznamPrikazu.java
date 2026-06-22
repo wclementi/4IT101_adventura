@@ -57,4 +57,12 @@ public class SeznamPrikazu {
         }
         return seznam;
     }
+    
+    /**
+     * Vrátí kolekci všech platných příkazů.
+     * @return kolekce implementací IPrikaz
+     */
+    public java.util.Collection<IPrikaz> vratVsechnyPrikazy() {
+        return mapaSPrikazy.values();
+    }
 }

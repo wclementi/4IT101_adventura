@@ -65,4 +65,9 @@ public class PrikazNapln implements IPrikaz {
     public String getNazev() {
         return NAZEV;
     }
+    
+    @Override
+    public String getPouziti() {
+        return "naplň <název lahve>";
+    }
 }

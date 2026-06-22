@@ -35,4 +35,9 @@ public class PrikazKup implements IPrikaz {
     public String getNazev() {
         return NAZEV;
     }
+    
+    @Override
+    public String getPouziti() {
+        return "kup <název předmětu>";
+    }
 }

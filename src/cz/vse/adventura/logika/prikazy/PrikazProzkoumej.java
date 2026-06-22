@@ -33,4 +33,9 @@ public class PrikazProzkoumej implements IPrikaz {
     public String getNazev() {
         return NAZEV;
     }
+    
+    @Override
+    public String getPouziti() {
+        return "prozkoumej <název předmětu>";
+    }
 }

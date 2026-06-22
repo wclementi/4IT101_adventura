@@ -48,4 +48,9 @@ public class PrikazRozbij implements IPrikaz {
     public String getNazev() {
         return NAZEV;
     }
+    
+    @Override
+    public String getPouziti() {
+        return "rozbij <název předmětu>";
+    }
 }

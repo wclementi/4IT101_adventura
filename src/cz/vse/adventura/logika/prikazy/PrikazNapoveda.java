@@ -16,28 +16,26 @@ public class PrikazNapoveda implements IPrikaz {
     
     @Override
     public String provedPrikaz(String... parametry) {
-        return "Tvým úkolem je najít automat 'lokni si' a koupit si nápoj.\n"
-        + "Najdi na škole bufet a prohledej okolí, jestli nemáš nějaké mince.\n"
-        + "\n"
-        + "Můžeš zadat tyto příkazy:\n"
-        + "  jdi <název prostoru>\n"
-        + "  seber <název předmětu>\n"
-        + "  polož <název předmětu>\n"
-        + "  vypiš\n"
-        + "  pij <název nápoje>\n"
-        + "  kup <název předmětu>\n"
-        + "  prozkoumej <název předmětu>\n"
-        + "  promluv <jméno postavy>\n"
-        + "  naplň <název lahve>\n"
-        + "  sedni\n"
-        + "  rozbij <název předmětu>\n"
-        + "  nápověda\n"
-        + "  log\n"
-        + "  konec";
+        StringBuilder sb = new StringBuilder();
+        sb.append("Tvým úkolem je najít automat 'lokni si' a koupit si nápoj.\n");
+        sb.append("Najdi na škole bufet a prohledej okolí, jestli nemáš nějaké mince.\n\n");
+        sb.append("Můžeš zadat tyto příkazy:\n");
+        for (IPrikaz prikaz : platnePrikazy.vratVsechnyPrikazy()) {
+            sb.append("  ").append(prikaz.getPouziti()).append("\n");
+        }
+        if (sb.length() > 0) {
+            sb.setLength(sb.length() - 1);
+        }
+        return sb.toString();
     }
     
     @Override
-      public String getNazev() {
+    public String getNazev() {
         return NAZEV;
-     }
+    }
+
+    @Override
+    public String getPouziti() {
+        return "nápověda";
+    }
 }
