@@ -1,6 +1,6 @@
 package cz.vse.adventura.logika.prikazy;
-import cz.vse.adventura.logika.*;
 
+import cz.vse.adventura.logika.*;
 
 /**
  * Příkaz pro vypsání obsahu batohu.
@@ -22,10 +22,11 @@ public class PrikazVypis implements IPrikaz {
         }
 
         String parametr = parametry[0];
+        String cistyParametr = cz.vse.adventura.logika.TextUtil.odstranDiakritiku(parametr);
 
-        if (parametr.equals("prostor")) {
+        if (cistyParametr.equals("prostor")) {
             return plan.getAktualniProstor().dlouhyPopis();
-        } else if (parametr.equals("batoh")) {
+        } else if (cistyParametr.equals("batoh")) {
             return plan.getPopisObsahuBatohu();
         } else {
             return "To neznám. Můžu vypsat jen 'prostor' nebo 'batoh'.";
@@ -36,7 +37,7 @@ public class PrikazVypis implements IPrikaz {
     public String getNazev() {
         return NAZEV;
     }
-    
+
     @Override
     public String getPouziti() {
         return "vypiš <prostor/batoh>";

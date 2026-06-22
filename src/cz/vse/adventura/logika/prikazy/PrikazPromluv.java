@@ -24,9 +24,10 @@ public class PrikazPromluv implements IPrikaz {
         }
 
         String jmenoNpc;
-        if (parametry[0].equals("s") && parametry.length > 1) {
+        String cisteSlovo = cz.vse.adventura.logika.TextUtil.odstranDiakritiku(parametry[0]);
+        if (cisteSlovo.equals("s") && parametry.length > 1) {
             jmenoNpc = parametry[1];
-        } else if (parametry[0].equals("s")) {
+        } else if (cisteSlovo.equals("s")) {
             return "S kým?";
         } else {
             jmenoNpc = parametry[0];
@@ -46,7 +47,7 @@ public class PrikazPromluv implements IPrikaz {
     public String getNazev() {
         return NAZEV;
     }
-    
+
     @Override
     public String getPouziti() {
         return "promluv <jméno postavy>";

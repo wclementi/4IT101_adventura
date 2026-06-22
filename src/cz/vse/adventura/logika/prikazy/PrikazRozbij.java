@@ -1,4 +1,5 @@
 package cz.vse.adventura.logika.prikazy;
+
 import cz.vse.adventura.logika.*;
 import cz.vse.adventura.logika.predmety.*;
 
@@ -22,7 +23,7 @@ public class PrikazRozbij implements IPrikaz {
         if (parametry.length == 0) {
             return "Co mám rozbít?";
         }
-        
+
         String nazev = parametry[0];
         Prostor aktualniProstor = plan.getAktualniProstor();
 
@@ -34,7 +35,9 @@ public class PrikazRozbij implements IPrikaz {
             return "Nemáš čím to rozbít. Hodilo by se nějaké nářadí.";
         }
 
-        if (nazev.equals("automat") || nazev.equals("nápojový_automat") || nazev.equals("LOKNI_SI_automat")) {
+        String cistyNazev = cz.vse.adventura.logika.TextUtil.odstranDiakritiku(nazev);
+
+        if (cistyNazev.equals("automat") || cistyNazev.equals("napojovy_automat") || cistyNazev.equals("lokni_si_automat")) {
             hra.setRozbityAutomat(true);
             aktualniProstor.odeberVec(aktualniProstor.getVec(nazev));
             aktualniProstor.pridejVec(new Vec("nápoj", true, 2));
@@ -48,7 +51,7 @@ public class PrikazRozbij implements IPrikaz {
     public String getNazev() {
         return NAZEV;
     }
-    
+
     @Override
     public String getPouziti() {
         return "rozbij <název předmětu>";

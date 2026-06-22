@@ -1,23 +1,25 @@
 package cz.vse.adventura.logika;
+
 import cz.vse.adventura.logika.predmety.*;
 import cz.vse.adventura.logika.npc.*;
 
 /**
- * Třída představující herní mapu. Definuje jednotlivé prostory a jejich propojení.
+ * Třída představující herní mapu.
+ * Definuje jednotlivé prostory a jejich propojení.
  *
  * @author Kajetan Franciszek Wielgosz
  */
 public class HerniPlan {
-    
+
     private Prostor aktualniProstor;
     private final Batoh batoh;
-    
+
     public HerniPlan() {
         zalozProstoryHry();
         // ukol 12. tyden: Singleton pro batoh
         batoh = Batoh.getInstance();
     }
-    
+
     private void zalozProstoryHry() {
         // vytvoření prostorů
         Prostor ucebnaProgramovani = new Prostor("ucebna_programovani", "učebna, kde probíhá přednáška 4IT101");
@@ -49,7 +51,7 @@ public class HerniPlan {
         chodbaPrizemi.setVychod(schodiste);
         chodbaPrizemi.setVychod(recepce);
         chodbaPrizemi.setVychod(chodbaNovaBudova);
-        
+
         recepce.setVychod(chodbaPrizemi);
         recepce.setVychod(vychodVSE);
         vychodVSE.setVychod(recepce);
@@ -63,7 +65,7 @@ public class HerniPlan {
 
         vencovskehoAula.setVychod(chodbaVnoveBudove);
         likesovaAula.setVychod(chodbaVnoveBudove);
-        
+
         // Přidání věcí do prostorů
         chodbaPatro1.pridejVec(new Vec("učebnice_ekonomie", true, 3));
         uklidovaMistnost.pridejVec(new Vec("páčidlo", true, 5));
@@ -77,22 +79,28 @@ public class HerniPlan {
         likesovaAula.pridejVec(new Vec("mince", true, 1));
 
         // Vytvoření a přidání NPC postav do prostorů
-        NPCPouzeMluvici ucitel = new NPCPouzeMluvici("ucitel", "(ucitel): Po sbaleni svých věcí zastavil studenty aby jim něco připomenul. \"Pamatujte si odevzdaní semestrální práce je vypsáno v odevzdávarně na 25.6. ale jestli chcete absolvovat obajobu musíte jí odevzdat před ní.\"\n(ty): \"To bych asi mohl udělat doma, teď na to ale ani nemůžu myslet kvůli té žízni\", pomyslel sis.");
+        NPCPouzeMluvici ucitel = new NPCPouzeMluvici("ucitel",
+                "(ucitel): Po sbaleni svých věcí zastavil studenty aby jim něco připomenul. \"Pamatujte si odevzdaní semestrální práce je vypsáno v odevzdávarně na 25.6. ale jestli chcete absolvovat obajobu musíte jí odevzdat před ní.\"\n(ty): \"To bych asi mohl udělat doma, teď na to ale ani nemůžu myslet kvůli té žízni\", pomyslel sis.");
         ucebnaProgramovani.pridejPostavu(ucitel);
 
-        NPCPouzeMluvici typecek = new NPCPouzeMluvici("typecek", "(ty): \"Ahoj, nevěděl bys kde můžu sehnat něco k pití?\"\n(typecek): ... \"S tim ti asi nepomuzu\"\n(ty): \"Jakto??\"\n(typecek): \"Tady ani nestuduju. . .\"\n(ty): \"Ouu, tak to se neda nic\"");
+        NPCPouzeMluvici typecek = new NPCPouzeMluvici("typecek",
+                "(ty): \"Ahoj, nevěděl bys kde můžu sehnat něco k pití?\"\n(typecek): ... \"S tim ti asi nepomuzu\"\n(ty): \"Jakto??\"\n(typecek): \"Tady ani nestuduju. . .\"\n(ty): \"Ouu, tak to se neda nic\"");
         chodbaPatro1.pridejPostavu(typecek);
 
-        NPCPouzeMluvici ucitelka = new NPCPouzeMluvici("ucitelka_ekonomie", "*vsimnul sis známé tváře, přednášející ekonomie, která zrovna čekala poblíž schodů telefonem v ruce*\n(ty): \"Zdravím, mohl bych se vás prosím zeptat na to v jaké místnoti dnes přednášíte ekonomii?\"\n(ucitelka): \"To byste ale měl vědět vy, mladý Pane...\"\n(ty): \"Ja vím ale mám dnes těžký den a nějak mi to vypadlo, řekla byste mi to prosím?\"\n(ucitelka): \"Přednáška bude v Likešově aule ... a né abych vás viděla přijít pozdě.\"\n(ty): \"Určite, příjdu včas a děkuju moc.\"");
+        NPCPouzeMluvici ucitelka = new NPCPouzeMluvici("ucitelka_ekonomie",
+                "*vsimnul sis známé tváře, přednášející ekonomie, která zrovna čekala poblíž schodů telefonem v ruce*\n(ty): \"Zdravím, mohl bych se vás prosím zeptat na to v jaké místnoti dnes přednášíte ekonomii?\"\n(ucitelka): \"To byste ale měl vědět vy, mladý Pane...\"\n(ty): \"Ja vím ale mám dnes těžký den a nějak mi to vypadlo, řekla byste mi to prosím?\"\n(ucitelka): \"Přednáška bude v Likešově aule ... a né abych vás viděla přijít pozdě.\"\n(ty): \"Určite, příjdu včas a děkuju moc.\"");
         schodiste.pridejPostavu(ucitelka);
 
-        NPCPouzeMluvici vratny = new NPCPouzeMluvici("vratny", "(ty): \"Omlouvám se, mám strašnou žízeň a potřebuju se něčeho napít. Poradil byste mi prosim?\"\n(vratny): \"Urcite, tady nedaleko je automat kde si muzete natocit vodu do vlastni lahve s aplikaci v telefonu, mel by byt na ceste do nove budovy nebo na chodbe v nove budove je automat, tam ale budete muset zaplatit mincemi.\"\n(ty): \"Dekuju moc, mejte se.\"");
+        NPCPouzeMluvici vratny = new NPCPouzeMluvici("vratny",
+                "(ty): \"Omlouvám se, mám strašnou žízeň a potřebuju se něčeho napít. Poradil byste mi prosim?\"\n(vratny): \"Urcite, tady nedaleko je automat kde si muzete natocit vodu do vlastni lahve s aplikaci v telefonu, mel by byt na ceste do nove budovy nebo na chodbe v nove budove je automat, tam ale budete muset zaplatit mincemi.\"\n(ty): \"Dekuju moc, mejte se.\"");
         recepce.pridejPostavu(vratny);
 
-        NPCPouzeMluvici student = new NPCPouzeMluvici("student", "(ty): \"Ahoj, na jakou prednasku tady cekas?\"\n(student): \"Cekam na prednasku databazi.\"\n(ty): \"Diky moc.\"");
+        NPCPouzeMluvici student = new NPCPouzeMluvici("student",
+                "(ty): \"Ahoj, na jakou prednasku tady cekas?\"\n(student): \"Cekam na prednasku databazi.\"\n(ty): \"Diky moc.\"");
         vencovskehoAula.pridejPostavu(student);
 
-        NPCPouzeMluvici studentka = new NPCPouzeMluvici("studentka", "(ty): \"Ahoj, na jakou prednasku tady cekas?\"\n(student): \"Cekam na prednasku ekonomie.\"\n(ty): \"Super, diky moc.\"");
+        NPCPouzeMluvici studentka = new NPCPouzeMluvici("studentka",
+                "(ty): \"Ahoj, na jakou prednasku tady cekas?\"\n(student): \"Cekam na prednasku ekonomie.\"\n(ty): \"Super, diky moc.\"");
         likesovaAula.pridejPostavu(studentka);
 
         NPCDominik dominik = new NPCDominik("dominik");
@@ -107,69 +115,74 @@ public class HerniPlan {
 
     /**
      * Metoda pro seberVec.
+     * 
      * @param nazevVeci požadovaný vstup nazevVeci
      */
-    public void seberVec(String nazevVeci) throws Exception
-    {
+    public void seberVec(String nazevVeci) throws Exception {
         Vec vec = aktualniProstor.getVec(nazevVeci);
 
-        if(vec != null)
-        {
+        if (vec != null) {
             if (!vec.isPrenositelna()) {
                 throw new Exception("Tuto věc nelze přenášet.");
             }
             batoh.pridejVec(vec);
             aktualniProstor.odeberVec(vec);
-        }else{
+        } else {
             throw new Exception("Nic takoveho tu neni");
         }
     }
 
     /**
      * Metoda pro polozVec.
+     * 
      * @param nazevVeci požadovaný vstup nazevVeci
      */
-    public void polozVec(String nazevVeci) throws Exception
-    {
+    public void polozVec(String nazevVeci) throws Exception {
         Vec vec = batoh.odeberVec(nazevVeci);
         aktualniProstor.pridejVec(vec);
     }
-    
+
     /**
      * Metoda pro vypij.
+     * 
      * @param nazev hledaný název
      */
     public void vypij(String nazev) throws Exception {
         if (!batoh.jeVecVBatohu(nazev)) {
             throw new Exception("Takovou věc nemáš v batohu k pití.");
         }
-        if (!nazev.equals("nápoj") && !nazev.equals("plná_lahev") && !nazev.equals("plná_lahev_od_sava")) {
+        
+        String cistyNazev = cz.vse.adventura.logika.TextUtil.odstranDiakritiku(nazev);
+        if (!cistyNazev.equals("napoj") && !cistyNazev.equals("plna_lahev") && !cistyNazev.equals("plna_lahev_od_sava")) {
             throw new Exception("Tohle se nedá pít.");
         }
         batoh.odeberVec(nazev);
     }
-    
+
     /**
      * Metoda pro kupVec.
+     * 
      * @param nazev hledaný název
      */
     public void kupVec(String nazev) throws Exception {
-        if (!aktualniProstor.jeVecVProstoru("automat") && !aktualniProstor.jeVecVProstoru("LOKNI_SI_automat") && !aktualniProstor.jeVecVProstoru("nápojový_automat")) {
+        if (!aktualniProstor.jeVecVProstoru("automat") && !aktualniProstor.jeVecVProstoru("LOKNI_SI_automat")
+                && !aktualniProstor.jeVecVProstoru("nápojový_automat")) {
             throw new Exception("Tady není automat, kde by se dalo nakupovat.");
         }
         if (!batoh.jeVecVBatohu("mince")) {
             throw new Exception("Nemáš žádné mince na nákup.");
         }
-        if (!nazev.equals("nápoj")) {
+        if (!cz.vse.adventura.logika.TextUtil.odstranDiakritiku(nazev).equals("napoj")) {
             throw new Exception("Automat prodává pouze 'nápoj'.");
         }
-        
+
         batoh.odeberVec("mince");
         aktualniProstor.pridejVec(new Vec("nápoj", true, 2));
     }
-    
+
     /**
      * Metoda pro prozkoumejVec.
+     * 
      * @param nazev hledaný název
      * @return logický výsledek volání
      */
@@ -188,22 +201,25 @@ public class HerniPlan {
 
     /**
      * Vrátí odkaz na aktuální prostor (místnost), ve kterém se hráč právě nachází.
+     * 
      * @return logický výsledek volání
      */
     public Prostor getAktualniProstor() {
         return aktualniProstor;
     }
-    
+
     /**
      * Nastaví aktuální prostor (místnost), do kterého se hráč přesunul.
+     * 
      * @param prostor požadovaný vstup prostor
      */
     public void setAktualniProstor(Prostor prostor) {
-       aktualniProstor = prostor;
+        aktualniProstor = prostor;
     }
 
     /**
      * Metoda pro getPopisObsahuBatohu.
+     * 
      * @return logický výsledek volání
      */
     public String getPopisObsahuBatohu() {

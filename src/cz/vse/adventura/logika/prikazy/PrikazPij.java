@@ -1,4 +1,5 @@
 package cz.vse.adventura.logika.prikazy;
+
 import cz.vse.adventura.logika.*;
 
 /**
@@ -30,12 +31,15 @@ public class PrikazPij implements IPrikaz {
             return e.getMessage();
         }
 
-        if (nazev.equals("plná_lahev_od_sava")) {
+        String cistyNazev = cz.vse.adventura.logika.TextUtil.odstranDiakritiku(nazev);
+
+        if (cistyNazev.equals("plna_lahev_od_sava")) {
             hra.setVypitoSavo(true);
             return "Vypil jsi něco z lahve od sava. Udělalo se ti docela špatně, ale zatím se držíš na nohou. Měl by sis jít rychle sednout na přednášku.";
         } else {
             hra.setUspokojenaZizen(true);
-            return "Vypil jsi '" + nazev + "'. Výborně osvěžující! Žízeň je zahnána. Můžeš pokračovat na přednášku a usadit se.";
+            return "Vypil jsi '" + nazev
+                    + "'. Výborně osvěžující! Žízeň je zahnána. Můžeš pokračovat na přednášku a usadit se.";
         }
     }
 
@@ -43,7 +47,7 @@ public class PrikazPij implements IPrikaz {
     public String getNazev() {
         return NAZEV;
     }
-    
+
     @Override
     public String getPouziti() {
         return "pij <název nápoje>";
